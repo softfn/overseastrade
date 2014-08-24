@@ -17,12 +17,12 @@
 	</appender>
 
 	<!-- project default level -->
-	<logger name="cn.overseastrade.site" level="INFO" />
+	<logger name="cn.overseastrade.site" level="DEBUG" />
 
 	<!--log4jdbc -->
-	<logger name="jdbc.sqltiming" level="INFO"/>
+	<logger name="jdbc.sqltiming" level="DEBUG"/>
 
-	<root level="DEBUG">
+	<root level="TRACE">
 		<appender-ref ref="console" />
 		<appender-ref ref="rollingFile" />
 	</root>
