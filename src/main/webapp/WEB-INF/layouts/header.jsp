@@ -4,7 +4,10 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <div id="header">
 	<div id="title">
-	    <h1><a href="${ctx}">test</a>
+	    <h1><a href="${ctx}">Overseas Trade</a>
+        <div id="search_box">
+                <input id="search" name="search" type="text">
+        </div>
 	    <shiro:user>
 			<div class="btn-group pull-right">
 				<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
