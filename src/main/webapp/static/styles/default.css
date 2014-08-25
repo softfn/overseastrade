@@ -1,20 +1,115 @@
-/* header */
-#header {margin-bottom:15px;}
-
-#header h1 a {
-	color: #658A16;
-	text-decoration: none
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    font-size: 12px;
+    background: url("../images/bg.gif") 0 -200px repeat-x;
 }
 
-#header h1 small {color: #BACE87;}
+.container {
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    *zoom: 1
+}
 
-/* footer */
+.container:before, .container:after {
+    display: table;
+    line-height: 0;
+    content: ""
+}
+
+.container:after {
+    clear: both
+}
+
+#header {
+    height: 60px;
+}
+
+#logo {
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    float: left;
+}
+
+#seo {
+    width: 240px;
+    height: 60px;
+    line-height: 60px;
+    float: right;
+    text-align: right;
+}
+
+#sub {
+    width: 70px;
+    height: 60px;
+    line-height: 60px;
+    float: right;
+}
+
+#search {
+    width: 180px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #E2E2E2;
+    outline: none;
+    padding: 0px 4px;
+}
+
+#submit {
+    width: 70px;
+    height: 24px;
+    line-height: 24px;
+    background: #558EB9;
+    border: 1px solid #4F9ED9;
+    color: #F7F7F7;
+    font-weight: bold;
+    padding: 0px;
+    font-size: 11px;
+}
+
+#menu {
+    height: 38px;
+    background-color: #3681AE;
+    margin-bottom: 6px;
+}
+
+.item {
+    width: 125px;
+    float: left;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+#content {
+    height: 400px;
+}
+
+#left {
+    float: left;
+    width: 206px;
+    height: 300px;
+}
+
+#right {
+    float: right;
+    width: 780px;
+}
+
 #footer {
-	margin-top: 15px;
-	padding: 15px 0px 0px 0px;
-	font-size: 95%;
-	text-align: center;
-	border-top: 2px solid #658A16;
+    margin-top: 15px;
+    padding: 15px 0px 0px 0px;
+    font-size: 95%;
+    text-align: center;
+    border-top: 6px solid #3681AE;
 }
 
-#footer a {color: #999;}
+#footer a {
+    color: #999;
+    text-decoration: underline;
+}
