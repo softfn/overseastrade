@@ -1,5 +1,8 @@
 package cn.overseastrade.site.web.admin;
 
+import cn.overseastrade.site.service.account.ShiroDbRealm;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
+        Subject subject = SecurityUtils.getSubject();
+        if (subject != null && subject.isAuthenticated()) {
+            return "redirect:/admin/platform";
+        }
         return "admin/login";
     }
 
