@@ -70,6 +70,7 @@ body {
     font-weight: bold;
     padding: 0px;
     font-size: 11px;
+    cursor: pointer;
 }
 
 #menu {
@@ -102,6 +103,7 @@ body {
     height: auto;
     overflow: hidden;
     margin: 0px;
+    background-color: #E3E3E3;
 }
 
 .grid-header {
@@ -114,8 +116,7 @@ body {
 }
 
 .grid-container {
-    min-height: 200px;
-    background-color: #E3E3E3;
+    min-height: 260px;
 }
 
 #right {
@@ -127,11 +128,12 @@ body {
 
 #slideshow {
     height: 226px;
-    background-color: #E3E3E3;
+    background-color: #F1F1F1;
 }
 
 .content-title {
-    height: 14px;
+    height: 24px;
+    line-height: 24px;
     color: #005F97;
     font-weight: bold;
 }
@@ -141,8 +143,35 @@ body {
     height: 160px;
 }
 
-#hotpouducts {
-    height: 840;
+#hotproducts {
+    height: auto;
+    overflow: hidden;
+}
+
+.product-grid {
+    min-height: 450px;
+}
+
+.product-item {
+    float: left;
+    width: 180px;
+    height: 210px;
+    border: solid #F1F1F1 1px;
+    margin: 5px 6px;
+}
+
+#more {
+    margin-top: 3px;
+    float: right;
+    width: 50px;
+    height: 16px;
+    line-height: 16px;
+    background: #558EB9;
+    border: 1px solid #4F9ED9;
+    color: #F7F7F7;
+    text-align: center;
+    font-size: 10px;
+    cursor: pointer;
 }
 
 #footer {

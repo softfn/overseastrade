@@ -8,11 +8,22 @@
 </div>
 <div id="aboutus">
     <div class="content-title">About us</div>
-    <div><img src="static/images/aboutus.jpg" width="200px"></div>
-</div>
-<div id="hotpouducts">
-    <div class="content-title">Hot Pouducts</div>
+    <div><img src="static/images/aboutus.jpg" width="180px">
 
+    </div>
+</div>
+<div id="hotproducts">
+    <div class="content-title">Hot Pouducts<span id="more">More >></span></div>
+    <div class="product-grid">
+        <div class="product-item"></div>
+        <div class="product-item"></div>
+        <div class="product-item"></div>
+        <div class="product-item"></div>
+        <div class="product-item"></div>
+        <div class="product-item"></div>
+        <div class="product-item"></div>
+        <div class="product-item"></div>
+    </div>
 </div>
 </body>
 </html>
