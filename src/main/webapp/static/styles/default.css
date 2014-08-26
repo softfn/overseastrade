@@ -33,6 +33,7 @@ body {
     height: 60px;
     line-height: 60px;
     float: left;
+    background: url("../images/logo.png") 0 0 no-repeat;
 }
 
 #seo {
@@ -88,26 +89,68 @@ body {
 }
 
 #content {
-    height: 400px;
+    margin: 0 0 10px 0;
+    height: auto;
+    overflow: hidden;
+    clear: both;
+    background-color: #FFFFFF;
 }
 
 #left {
     float: left;
-    width: 206px;
-    height: 300px;
+    width: 212px;
+    height: auto;
+    overflow: hidden;
+    margin: 0px;
+}
+
+.grid-header {
+    height: 26px;
+    line-height: 26px;
+    color: #FFFFFF;
+    padding-left: 26px;
+    font-size: 11px;
+    background-color: #3681AE;
+}
+
+.grid-container {
+    min-height: 200px;
+    background-color: #E3E3E3;
 }
 
 #right {
     float: right;
     width: 780px;
+    height: auto;
+    overflow: hidden;
+}
+
+#slideshow {
+    height: 226px;
+    background-color: #E3E3E3;
+}
+
+.content-title {
+    height: 14px;
+    color: #005F97;
+    font-weight: bold;
+}
+
+#aboutus {
+    margin-top: 6px;
+    height: 160px;
+}
+
+#hotpouducts {
+    height: 840;
 }
 
 #footer {
-    margin-top: 15px;
-    padding: 15px 0px 0px 0px;
+    padding: 12px 0px;
     font-size: 95%;
     text-align: center;
     border-top: 6px solid #3681AE;
+    clear: both;
 }
 
 #footer a {

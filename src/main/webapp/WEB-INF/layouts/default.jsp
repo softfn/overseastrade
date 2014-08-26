@@ -5,13 +5,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>深圳市昕琦科技有限公司<sitemesh:title/></title>
+<title>Overseas Trade : <sitemesh:title/></title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 
-<link type="image/x-icon" href="${ctx}/static/images/favicon.ico" rel="shortcut icon">
+<link type="image/x-icon" href="${ctx}/static/images/favicon1.ico" rel="shortcut icon">
 <link href="${ctx}/static/styles/default.css" type="text/css" rel="stylesheet" />
 <script src="${ctx}/static/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
 
@@ -23,7 +23,18 @@
 		<%@ include file="/WEB-INF/layouts/header.jsp"%>
         <div id="content">
             <div id="left">
-
+                <div id="product-categories">
+                    <div class="grid-header">Product Categories</div>
+                    <div class="grid-container"></div>
+                </div>
+                <div id="latest-news">
+                    <div class="grid-header">Latest News</div>
+                    <div class="grid-container"></div>
+                </div>
+                <div id="contact-us">
+                    <div class="grid-header">Contact Us</div>
+                    <div class="grid-container"></div>
+                </div>
             </div>
             <div id="right"><sitemesh:body/></div>
         </div>

@@ -3,9 +3,7 @@
 <%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <div id="header">
-	<div id="logo">
-	    <a href="${ctx}">Overseas Trade</a>
-    </div>
+	<div id="logo"></div>
     <div id="sub">
         <input id="submit" name="submit" type="submit" value="SEARCH">
     </div>
