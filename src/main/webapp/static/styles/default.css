@@ -3,7 +3,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
     font-size: 12px;
-    background: url("../images/bg.gif") 0 -200px repeat-x;
+    background: url("../images/bg.jpg") 0 0 repeat-x;
 }
 
 .container {
@@ -25,6 +25,7 @@ body {
 
 #header {
     height: 60px;
+    background: url("../images/header.png") 0 0 no-repeat;
 }
 
 #logo {

@@ -3,9 +3,14 @@
 	<excludes>
 		<pattern>/static/*</pattern>
 		<pattern>/api/*</pattern>
+		<pattern>/login</pattern>
 	</excludes>
-	
+
 	<decorator name="default" page="default.jsp">
 		<pattern>/*</pattern>
+	</decorator>
+
+	<decorator name="backend" page="backend.jsp">
+		<pattern>/admin/*</pattern>
 	</decorator>
 </decorators>
