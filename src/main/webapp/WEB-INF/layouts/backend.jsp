@@ -31,14 +31,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${ctx}/">Home</a></li>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#about">Products</a></li>
-                <li><a href="#about">News</a></li>
-                <li><a href="#about">Download</a></li>
-                <li><a href="#about">FAQ</a></li>
-                <li><a href="#about">Feedback</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li class="active"><a href="${ctx}/admin/home">Home</a></li>
+                <li><a href="${ctx}/admin/ablutus">About us</a></li>
+                <li><a href="${ctx}/admin/products">Products</a></li>
+                <li><a href="${ctx}/admin/news">News</a></li>
+                <li><a href="${ctx}/admin/download">Download</a></li>
+                <li><a href="${ctx}/admin/faq">FAQ</a></li>
+                <li><a href="${ctx}/admin/feedback">Feedback</a></li>
+                <li><a href="${ctx}/admin/contactus">Contact us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
