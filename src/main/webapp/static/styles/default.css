@@ -79,6 +79,11 @@ body {
     margin-bottom: 6px;
 }
 
+#menu a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .item {
     width: 125px;
     float: left;
@@ -110,7 +115,7 @@ body {
     height: 26px;
     line-height: 26px;
     color: #FFFFFF;
-    padding-left: 26px;
+    padding-left: 14px;
     font-size: 11px;
     background-color: #3681AE;
 }
@@ -162,6 +167,7 @@ body {
 
 #more {
     margin-top: 3px;
+    margin-right: 6px;
     float: right;
     width: 50px;
     height: 16px;
@@ -172,6 +178,7 @@ body {
     text-align: center;
     font-size: 10px;
     cursor: pointer;
+    font-style: italic;
 }
 
 #footer {

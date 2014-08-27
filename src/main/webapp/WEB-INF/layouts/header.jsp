@@ -12,12 +12,12 @@
     </div>
 </div>
 <div id="menu">
-    <div class="item">Home</div>
-    <div class="item">About us</div>
-    <div class="item">Products</div>
-    <div class="item">News</div>
-    <div class="item">Download</div>
-    <div class="item">FAQ</div>
-    <div class="item">Feedback</div>
-    <div class="item">Contact us</div>
+    <div class="item"><a href="${ctx}/">Home</a></div>
+    <div class="item"><a href="${ctx}/aboutus">About us</a></div>
+    <div class="item"><a href="${ctx}/products">Products</a></div>
+    <div class="item"><a href="${ctx}/news">News</a></div>
+    <div class="item"><a href="${ctx}/download">Download</a></div>
+    <div class="item"><a href="${ctx}/faq">FAQ</a></div>
+    <div class="item"><a href="${ctx}/feedback">Feedback</a></div>
+    <div class="item"><a href="${ctx}/contactus">Contact us</a></div>
 </div>
