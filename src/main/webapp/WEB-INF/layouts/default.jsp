@@ -13,7 +13,7 @@
 
 <link type="image/x-icon" href="${ctx}/static/images/favicon.ico" rel="shortcut icon">
 <link href="${ctx}/static/styles/default.css" type="text/css" rel="stylesheet" />
-<script src="${ctx}/static/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
 
 <sitemesh:head/>
 </head>
