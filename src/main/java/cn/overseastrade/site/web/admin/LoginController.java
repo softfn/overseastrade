@@ -19,7 +19,7 @@ public class LoginController {
     public String login() {
         Subject subject = SecurityUtils.getSubject();
         if (subject != null && subject.isAuthenticated()) {
-            return "redirect:/admin/platform";
+            return "/admin/home";
         }
         return "admin/login";
     }
@@ -28,10 +28,5 @@ public class LoginController {
     public String fail(@RequestParam(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM) String userName, Model model) {
         model.addAttribute(FormAuthenticationFilter.DEFAULT_USERNAME_PARAM, userName);
         return "admin/login";
-    }
-
-    @RequestMapping(value = "/admin/platform", method = RequestMethod.GET)
-    public String success() {
-        return "admin/platform";
     }
 }

@@ -17,10 +17,10 @@
 	</appender>
 
 	<!-- project default level -->
-	<logger name="cn.overseastrade.site" level="DEBUG" />
+	<logger name="cn.overseastrade.site" level="INFO" />
 
 	<!--log4jdbc -->
-	<logger name="jdbc.sqltiming" level="DEBUG"/>
+	<logger name="jdbc.sqltiming" level="INFO"/>
 
 	<root level="TRACE">
 		<appender-ref ref="console" />

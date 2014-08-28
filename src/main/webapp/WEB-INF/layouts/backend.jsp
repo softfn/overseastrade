@@ -15,8 +15,6 @@
     <link type="image/x-icon" href="${ctx}/static/images/favicon.ico" rel="shortcut icon">
     <link href="${ctx}/static/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
     <link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet"/>
-    <script src="${ctx}/static/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
-    <script src="${ctx}/static/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
     <script src="${ctx}/static/jquery-validation/1.11.1/messages_bs_zh.js" type="text/javascript"></script>
 
@@ -27,7 +25,7 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Overseas Trade Backend</a>
+            <a class="navbar-brand" href="javascript:void(0)">Overseas Trade Backend</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -58,14 +56,10 @@
 </div>
 
 <div class="container">
-    <div id="content">
-        <div id="left">
-
-        </div>
-        <div id="right"><sitemesh:body/></div>
-    </div>
+    <div id="content"><sitemesh:body/></div>
     <%@ include file="/WEB-INF/layouts/footer.jsp" %>
 </div>
-
+<script src="${ctx}/static/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="${ctx}/static/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 </html>
