@@ -42,12 +42,17 @@
 </div>
 <div id="aboutus">
     <div class="content-title">About us</div>
-    <div><img src="${ctx}/static/images/aboutus.jpg" width="180px">
-
+    <div class="aboutus_content"><img src="${ctx}/static/images/aboutus.jpg" class="aboutus_img">
+        WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
+        WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
+        WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
+        WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
+        WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
+        WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores
     </div>
 </div>
 <div id="hotproducts">
-    <div class="content-title">Hot Pouducts<span id="more">More >></span></div>
+    <div class="content-title">Hot Pouducts<div id="more">More >></div></div>
     <div class="product-grid">
         <div class="product-item"></div>
         <div class="product-item"></div>
@@ -64,6 +69,11 @@
         $('#banners').bannerize({
             shuffle: 1,
             interval: "5"
+        });
+        $(".product-item").mouseover(function () {
+            $(this).addClass("product-item-over");
+        }).mouseout(function () {
+            $(this).removeClass("product-item-over");
         });
     });
 </script>
