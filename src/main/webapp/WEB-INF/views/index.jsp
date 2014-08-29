@@ -43,7 +43,7 @@
 <div id="aboutus">
     <div class="content-title">About us</div>
     <div class="aboutus_content"><img src="${ctx}/static/images/aboutus.jpg" class="aboutus_img">
-        WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
+        WorldStores - Top Brauunds Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
         WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
         WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
         WorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next DayWorldStores - Top Brands Delivered Next Day
