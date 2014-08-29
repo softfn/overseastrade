@@ -26,7 +26,7 @@ public class MenuController {
 
     @RequestMapping(value = "news")
     public String news() {
-        return "/admin/ablutus";
+        return "/admin/news";
     }
 
     @RequestMapping(value = "download")

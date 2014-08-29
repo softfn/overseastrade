@@ -14,7 +14,7 @@ body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; c
 #content { /*margin: 0 0 10px 0;*/ height: auto; overflow: hidden; clear: both; background-color: #FFFFFF; }
 #left { float: left; width: 212px; height: auto; overflow: hidden; margin: 0px; background-color: #ececec; }
 .grid-header { height: 26px; line-height: 26px; color: #FFFFFF; padding-left: 14px; font-size: 11px; background-color: #3681AE; }
-.grid-container { min-height: 262px; }
+.grid-container { min-height: 268px; }
 #right { float: right; width: 780px; height: auto; overflow: hidden; }
 #slideshow { height: 234px; background-color: #F1F1F1; }
 *{margin:0;padding:0;list-style-type:none;}
@@ -41,12 +41,12 @@ a,img{border:0;}
 /*.ui-banner .ui-banner-arrow.ui-banner-arrow-next img{left:-15px;}*/
 .ui-banner .ui-banner-overlay{bottom:0;height:10px;position:absolute;right:0;width:173px;}
 .content-title { height: 24px; line-height: 24px; color: #005F97; font-weight: bold; }
-#aboutus { margin-top: 2px; height: 160px; }
+#aboutus { margin-top: 2px; height: 180px; }
 .aboutus_img { float: left; width: 170px; height: 98px; margin-right: 4px; border: solid #ececec 1px }
 .aboutus_content { color: rgb(51, 51, 51); font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; font-size: 12px; line-height: 20px; }
 #hotproducts { height: auto; overflow: hidden; margin-top: 4px }
 .product-grid { min-height: 450px; }
-.product-item { float: left; width: 180px; height: 210px; border: solid #ececec 1px; margin: 5px 6px; }
+.product-item { float: left; width: 180px; height: 210px; border: solid #ececec 1px; margin: 5px 6px; cursor: pointer}
 .product-item-over { border: solid #3681AE 1px; margin: 5px 6px; }
 #more { margin-top: 3px; margin-right: 6px; float: right; width: 50px; height: 16px; line-height: 16px; background: #558EB9; border: 1px solid #4F9ED9; color: #F7F7F7; text-align: center; font-size: 10px; cursor: pointer; font-style: italic; }
 #footer { padding: 12px 0px; font-size: 95%; text-align: center; border-top: 6px solid #3681AE; clear: both; }

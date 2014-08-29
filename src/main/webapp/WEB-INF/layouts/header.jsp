@@ -21,3 +21,8 @@
     <div class="item"><a href="${ctx}/feedback">Feedback</a></div>
     <div class="item"><a href="${ctx}/contactus">Contact us</a></div>
 </div>
+<script type="text/javascript">
+    $("#submit").click(function () {
+        window.location.href = "${ctx}/products/search/" + $("#search").val();
+    });
+</script>
