@@ -70,6 +70,7 @@
             shuffle: 1,
             interval: "5"
         });
+
         $(".product-item").mouseover(function () {
             $(this).addClass("product-item-over");
         }).mouseout(function () {
