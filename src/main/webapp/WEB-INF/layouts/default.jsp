@@ -25,11 +25,38 @@
             <div id="left">
                 <div id="product-categories">
                     <div class="grid-header">Product Categories</div>
-                    <div class="grid-container"></div>
+                    <div class="grid-container">
+                        <ul>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a> <img src="${ctx}/static/images/new.gif"></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas dffe</a> <img src="${ctx}/static/images/new.gif"></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a> <img src="${ctx}/static/images/new.gif"></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="latest-news">
                     <div class="grid-header">Latest News</div>
-                    <div class="grid-container"></div>
+                    <div class="grid-container">
+                        <ul>
+                            <li><img src="${ctx}/static/images/sn/1.gif"> Shenzhen Overseas is fe <img src="${ctx}/static/images/new.gif"></li>
+                            <li><img src="${ctx}/static/images/sn/2.gif"> Shenzhen Overseas <img src="${ctx}/static/images/new.gif"></li>
+                            <li><img src="${ctx}/static/images/sn/3.gif"> Shenzhen Overseas</li>
+                            <li><img src="${ctx}/static/images/sn/4.gif"> Shenzhen Overseas</li>
+                            <li><img src="${ctx}/static/images/sn/5.gif"> Shenzhen Overseas</li>
+                            <li><img src="${ctx}/static/images/sn/6.gif"> Shenzhen Overseas</li>
+                            <li><img src="${ctx}/static/images/sn/7.gif"> Shenzhen Overseas</li>
+                            <li><img src="${ctx}/static/images/sn/8.gif"> Shenzhen Overseas</li>
+                            <li><img src="${ctx}/static/images/sn/9.gif"> Shenzhen Overseas</li>
+                            <li><img src="${ctx}/static/images/sn/10.gif"> Shenzhen Overseas</li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="contact-us">
                     <div class="grid-header">Contact Us</div>
