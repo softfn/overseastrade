@@ -60,7 +60,30 @@
                 </div>
                 <div id="contact-us">
                     <div class="grid-header">Contact Us</div>
-                    <div class="grid-container"></div>
+                    <div class="grid-container">
+                        <ul>
+                            <li>Tel: <strong>86-755-18926005906</strong></li>
+                            <li>Contact: <strong>Mr.Zhang</strong></li>
+                            <li>Email:</li>
+                            <li>
+                                <a href="mailto:overseastradecn@outlook.com"><strong>overseastradecn@outlook.com</strong></a>
+                            </li>
+                            <li>Skype: <a href="skype:overseastradecn@outlook.com?call" onclick="return skypeCheck();"><img
+                                    src=http://mystatus.skype.com/smallclassic/mengsajewel style="border: none;"
+                                    alt="Call me!"/></a></li>
+                            <li><strong>overseastradecn@outlook.com</strong></li>
+                            <li>Alitalk: <a href="http://webatm.alibaba.com/atm_chat.htm?enemberId=enaliintcn1001402227" target="_blank"><img src="http://amos.us.alitalk.alibaba.com/online.aw?v=2&uid=cn1001402227&site=enaliint&s=2"></a>
+                                <a target="_blank"
+                                           href="http://amos.im.alisoft.com/msg.aw?v=2&uid=cn1001402227&site=cntaobao&s=2&charset=utf-8"><img
+                                    border="0"
+                                    src="http://amos.im.alisoft.com/online.aw?v=2&uid=cn1001402227&site=cntaobao&s=2&charset=utf-8"
+                                    alt="Click here to send me a messag"/><strong>cn1001402227</strong></a></li>
+                            <li>QQ: <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=252802512&site=qq&menu=yes"><img
+                                    border="0" src="http://wpa.qq.com/pa?p=2:252802512:52"
+                                    alt="Click here to send me a messag"
+                                    title="Click here to send me a messag"/><strong>252802512</strong></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div id="right"><sitemesh:body/></div>
