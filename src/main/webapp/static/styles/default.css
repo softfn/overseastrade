@@ -14,9 +14,12 @@ body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; c
 #content { /*margin: 0 0 10px 0;*/ height: auto; overflow: hidden; clear: both; background-color: #FFFFFF; }
 #left { float: left; width: 212px; height: auto; overflow: hidden; margin: 0px; background-color: #ececec; }
 .grid-header { height: 26px; line-height: 26px; color: #FFFFFF; padding-left: 14px; font-size: 11px; background-color: #3681AE; }
-.grid-container { min-height: 268px; padding: 0 6px }
+.grid-container {padding: 0 6px }
 .grid-container ul li { line-height: 23px; border-bottom: 1px dashed #dfdfdf }
 .grid-container ul li a { color: #000000; text-decoration: none;  }
+#product-categories .grid-container { min-height: 266px; }
+#latest-news .grid-container { min-height: 242px; }
+#contact-us .grid-container { min-height: 296px; }
 #right { float: right; width: 780px; height: auto; overflow: hidden; }
 #slideshow { height: 234px; background-color: #F1F1F1; }
 *{margin:0;padding:0;list-style-type:none;}
