@@ -19,13 +19,15 @@
 
     <!-- 邮件发送器 -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="pop3.live.com" />
-        <property name="username" value="softfn@hotmail.com" />
-        <property name="password" value="QQ365990868" />
+        <property name="host" value="smtp.gmail.com" />
+        <property name="username" value="softfn2014@gmail.com" />
+        <property name="password" value="Cris3201327" />
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="javaMailProperties">
             <props>
                 <prop key="mail.smtp.auth">true</prop>
+                <!-- 使用gmail smtp server的必须参数 -->
+                <prop key="mail.smtp.starttls.enable">true</prop>
             </props>
         </property>
     </bean>
