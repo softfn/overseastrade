@@ -21,7 +21,7 @@
 <body>
 	<div class="container">
 		<%@ include file="/WEB-INF/layouts/header.jsp"%>
-        <div id="content">
+        <div id="container">
             <div id="left">
                 <div id="product-categories">
                     <div class="grid-header">Product Categories</div>

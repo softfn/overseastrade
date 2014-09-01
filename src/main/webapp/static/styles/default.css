@@ -11,7 +11,7 @@ body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; c
 #menu a { color: #FFFFFF; text-decoration: none; }
 .item { width: 125px; float: left; height: 38px; line-height: 38px; text-align: center; font-weight: bold; color: #FFFFFF; }
 #menu { height: 38px; background-color: #3681AE; margin-bottom: 6px; }
-#content { /*margin: 0 0 10px 0;*/ height: auto; overflow: hidden; clear: both; background-color: #FFFFFF; }
+#container { /*margin: 0 0 10px 0;*/ height: auto; overflow: hidden; clear: both; background-color: #FFFFFF; }
 #left { float: left; width: 212px; height: auto; overflow: hidden; margin: 0px; background-color: #ececec; }
 .grid-header { height: 26px; line-height: 26px; color: #FFFFFF; padding-left: 14px; font-size: 11px; background-color: #3681AE; }
 .grid-container {padding: 0 6px }
