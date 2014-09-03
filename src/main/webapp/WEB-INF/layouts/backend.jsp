@@ -30,7 +30,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="${ctx}/admin/home">Home</a></li>
-                <li><a href="${ctx}/admin/ablutus">About us</a></li>
+                <li><a href="${ctx}/admin/aboutus">About us</a></li>
                 <li><a href="${ctx}/admin/products">Products</a></li>
                 <li><a href="${ctx}/admin/news">News</a></li>
                 <li><a href="${ctx}/admin/download">Download</a></li>

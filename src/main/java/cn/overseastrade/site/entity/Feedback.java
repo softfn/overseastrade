@@ -3,6 +3,7 @@ package cn.overseastrade.site.entity;
 import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * Created by softfn on 9/1/2014.
@@ -19,6 +20,7 @@ public class Feedback extends IdEntity {
     private String country;
     private String company;
     private String site;
+    private Date time;
 
     @NotBlank
     public String getTitle() {
@@ -96,5 +98,29 @@ public class Feedback extends IdEntity {
 
     public void setSite(String site) {
         this.site = site;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", fax='" + fax + '\'' +
+                ", country='" + country + '\'' +
+                ", company='" + company + '\'' +
+                ", site='" + site + '\'' +
+                ", time=" + time +
+                '}';
     }
 }

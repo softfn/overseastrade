@@ -22,7 +22,7 @@ public class FeedbackService {
 
     public void save(Feedback feedback) {
         feedbackDao.save(feedback);
-        mimeMailService.sendNotificationMail(feedback);
+//        mimeMailService.sendNotificationMail(feedback);
     }
 
     @Autowired

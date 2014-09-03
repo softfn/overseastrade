@@ -58,39 +58,39 @@
     <div>
         <div class="row">
             <div class="lable"><label for="title"><span class="red">*</span> Title:</label></div>
-            <div class="field"><input id="title" name="title" type="text" required autofocus></div>
+            <div class="field"><input id="title" name="title" type="text" value="${email.title}" required autofocus></div>
         </div>
         <div class="row" style="height: 134px">
             <div class="lable"><label for="content"><span class="red">*</span> Content:</label></div>
-            <div class="field"><textarea id="content" name="content" maxlength="1000" required></textarea></div>
+            <div class="field"><textarea id="content" name="content" maxlength="1000" required>${email.content}</textarea></div>
         </div>
         <div class="row">
             <div class="lable"><label for="name"><span class="red">*</span> Name:</label></div>
-            <div class="field"><input id="name" name="name" type="text" maxlength="50" required></div>
+            <div class="field"><input id="name" name="name" type="text" value="${email.name}" maxlength="50" required></div>
         </div>
         <div class="row">
             <div class="lable"><label for="email"><span class="red">*</span> E-mail:</label></div>
-            <div class="field"><input id="email" name="email" type="text" required></div>
+            <div class="field"><input id="email" name="email" type="text" value="${email.email}" required></div>
         </div>
         <div class="row">
             <div class="lable"><label for="phone"><span class="red">*</span> Phone:</label></div>
-            <div class="field"><input id="phone" name="phone" type="text" required></div>
+            <div class="field"><input id="phone" name="phone" type="text" value="${email.phone}" required></div>
         </div>
         <div class="row">
             <div class="lable"><label for="fax">Fax:</label></div>
-            <div class="field"><input id="fax" name="fax" type="text"></div>
+            <div class="field"><input id="fax" name="fax" type="text" value="${email.fax}"></div>
         </div>
         <div class="row">
             <div class="lable"><label for="country"><span class="red">*</span> Country/Region:</label></div>
-            <div class="field"><input id="country" name="country" type="text" required></div>
+            <div class="field"><input id="country" name="country" type="text" value="${email.country}" required></div>
         </div>
         <div class="row">
             <div class="lable"><label for="company">Company: </label></div>
-            <div class="field"><input id="company" name="company" type="text"></div>
+            <div class="field"><input id="company" name="company" type="text" value="${email.company}"></div>
         </div>
         <div class="row">
             <div class="lable"><label for="site">Home Page:</label></div>
-            <div class="field"><input id="site" name="site" type="text"></div>
+            <div class="field"><input id="site" name="site" type="text" value="${email.site}"></div>
         </div>
         <%--<div class="row">
             <div class="lable"><label for="code"><span class="red"> *</span> Code:</label></div>
