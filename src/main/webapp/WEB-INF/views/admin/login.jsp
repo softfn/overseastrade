@@ -21,45 +21,50 @@
 </head>
 
 <body>
-
-<form id="loginForm" action="${ctx}/login" method="post" class="form-horizontal">
-	<%
-	String error = (String) request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
-	if(error != null){
-	%>
-		<div class="alert alert-error input-medium controls">
-			<button class="close" data-dismiss="alert">×</button>登录失败，请重试.
-		</div>
-	<%
-	}
-	%>
-        <div class="container">
-            <form class="form-signin" role="form">
-                <h2 class="form-signin-heading">Please sign in</h2>
-
-                <div class="row">
-                    <div class="col-md-2">
-                        <input id="username" name="username" type="text" value="${username}" class="form-control required" placeholder="Username" required autofocus>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <input id="password" name="password" type="password" class="form-control required" placeholder="Password" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <input id="rememberMe" name="rememberMe" type="checkbox" value="remember-me"> Remember me
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <button class="btn btn-sm btn-primary" type="submit">Sign in</button>
-                    </div>
-                </div>
-            </form>
+<div class="container">
+    <form id="loginForm" action="${ctx}/login" method="post" class="form-horizontal" role="form">
+        <h2 class="col-sm-offset-5 form-signin-heading">Please sign in</h2>
+        <%
+            String error = (String) request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
+            if(error != null){
+        %>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4 alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <strong>Warning!</strong> Better check yourself, you're not looking too good.
+            </div>
         </div>
-</form>
+        <%
+            }
+        %>
+        <div class="form-group">
+            <label for="username" class="col-sm-offset-2 col-sm-3 control-label">Username</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="username" name="username" value="${username}" placeholder="Username" required autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-offset-2 col-sm-3 control-label">Password</label>
+            <div class="col-sm-3">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="rememberMe" name="rememberMe"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-3">
+                <button type="submit" class="btn btn-default">Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 <script>
     $(document).ready(function() {

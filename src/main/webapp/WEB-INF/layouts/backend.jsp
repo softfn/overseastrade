@@ -17,7 +17,7 @@
     <link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet"/>
     <script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
     <script src="${ctx}/static/jquery-validation/1.11.1/messages_bs_zh.js" type="text/javascript"></script>
-
+    <link href="${ctx}/static/styles/backend.css" type="text/css" rel="stylesheet"/>
     <sitemesh:head/>
 </head>
 
@@ -29,14 +29,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="${ctx}/admin/home">Home</a></li>
-                <li><a href="${ctx}/admin/aboutus">About us</a></li>
-                <li><a href="${ctx}/admin/products">Products</a></li>
-                <li><a href="${ctx}/admin/news">News</a></li>
-                <li><a href="${ctx}/admin/download">Download</a></li>
-                <li><a href="${ctx}/admin/faq">FAQ</a></li>
-                <li><a href="${ctx}/admin/feedback">Feedback</a></li>
-                <li><a href="${ctx}/admin/contactus">Contact us</a></li>
+                <li id="home"><a href="${ctx}/admin/home">Home</a></li>
+                <li id="aboutus"><a href="${ctx}/admin/aboutus">About us</a></li>
+                <li id="products"><a href="${ctx}/admin/products">Products</a></li>
+                <li id="news"><a href="${ctx}/admin/news">News</a></li>
+                <li id="download"><a href="${ctx}/admin/download">Download</a></li>
+                <li id="faq"><a href="${ctx}/admin/faq">FAQ</a></li>
+                <li id="feedback"><a href="${ctx}/admin/feedback">Feedback</a></li>
+                <li id="contactus"><a href="${ctx}/admin/contactus">Contact us</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -61,5 +61,8 @@
 </div>
 <script src="${ctx}/static/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $("#"+"${activeId}").addClass("active");
+</script>
 </body>
 </html>

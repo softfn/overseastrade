@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by softfn on 8/29/2014.
  */
 @Controller
-public class NaviController {
+public class MenuController {
     @RequestMapping(value = "/home")
     public String home() {
         return "/index";

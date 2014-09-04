@@ -3,9 +3,10 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>About us</title>
+    <title>Products</title>
+    <link href="${ctx}/static/styles/backend.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-
+Products ${activeId}
 </body>
 </html>
