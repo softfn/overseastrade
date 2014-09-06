@@ -15,7 +15,7 @@ import java.util.Date;
 public class Article {
     private String id;
     private String subject;
-    private String keyword;
+    private String keywords;
     private String content;
     private Date time;
 
@@ -38,12 +38,12 @@ public class Article {
         this.subject = subject;
     }
 
-    public String getKeyword() {
-        return keyword;
+    public String getKeywords() {
+        return keywords;
     }
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 
     @NotBlank
@@ -61,5 +61,16 @@ public class Article {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id='" + id + '\'' +
+                ", subject='" + subject + '\'' +
+                ", keywords='" + keywords + '\'' +
+                ", content='" + content + '\'' +
+                ", time=" + time +
+                '}';
     }
 }

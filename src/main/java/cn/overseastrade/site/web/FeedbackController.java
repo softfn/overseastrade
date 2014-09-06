@@ -28,7 +28,7 @@ public class FeedbackController {
             model.addAttribute("email", email);
             FieldError fieldError = result.getFieldErrors().get(0);
             model.addAttribute("error",fieldError.getField() + " : " + fieldError.getDefaultMessage());
-            return "/feedback/index";
+            return "feedback/index";
         }
         email.setTime(new Date());
         feedbackService.save(email);

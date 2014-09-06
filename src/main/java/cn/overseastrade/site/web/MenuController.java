@@ -13,53 +13,53 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MenuController {
     @RequestMapping(value = "/home")
     public String home() {
-        return "/index";
+        return "index";
     }
 
     @RequestMapping(value = "/aboutus")
     public String ablutus() {
-        return "/aboutus/index";
+        return "aboutus/index";
     }
 
     @RequestMapping(value = "/products")
     public String products() {
-        return "/products/index";
+        return "products/index";
     }
 
     @RequestMapping(value = "/news")
     public String news() {
-        return "/news/index";
+        return "news/index";
     }
 
     @RequestMapping(value = "/download")
     public String download() {
-        return "/download/index";
+        return "download/index";
     }
 
     @RequestMapping(value = "/faq")
     public String faq() {
-        return "/faq/index";
+        return "faq/index";
     }
 
     @RequestMapping(value = "/feedback")
     public String feedback() {
-        return "/feedback/index";
+        return "feedback/index";
     }
 
     @RequestMapping(value = "/contactus")
     public String contactus() {
-        return "/contactus/index";
+        return "contactus/index";
     }
 
     @RequestMapping(value = "/products/more")
     public String moreProducts() {
-        return "/products/index";
+        return "products/index";
     }
 
     @RequestMapping(value = "/products/search/{keywords}", method = RequestMethod.GET)
     public String searchProducts(@PathVariable("keywords") String keywords, Model model) {
         System.out.println("keywords = [" + keywords + "], model = [" + model + "]");
-        return "/products/search";
+        return "products/search";
     }
 
 }

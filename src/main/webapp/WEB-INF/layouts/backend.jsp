@@ -15,6 +15,7 @@
     <link type="image/x-icon" href="${ctx}/static/images/favicon.ico" rel="shortcut icon">
     <link href="${ctx}/static/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
     <link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet"/>
+    <script src="${ctx}/static/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
     <script src="${ctx}/static/jquery-validation/1.11.1/messages_bs_zh.js" type="text/javascript"></script>
     <link href="${ctx}/static/styles/backend.css" type="text/css" rel="stylesheet"/>
@@ -56,10 +57,8 @@
 </div>
 
 <div class="container">
-    <div id="content"><sitemesh:body/></div>
-    <%@ include file="/WEB-INF/layouts/footer.jsp" %>
+    <sitemesh:body/>
 </div>
-<script src="${ctx}/static/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="${ctx}/static/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $("#"+"${activeId}").addClass("active");
