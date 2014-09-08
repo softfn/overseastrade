@@ -12,11 +12,12 @@
     <div class="form-group">
         <div class="input-group input-group-sm">
             <div class="input-group-addon">Title:</div>
-            <input class="form-control" type="text"  name="search_LIKE_title" value="${param.search_LIKE_title}">
+            <input class="form-control" type="text" name="search_LIKE_title" value="${param.search_LIKE_title}">
         </div>
         <div class="input-group input-group-sm">
             <div class="input-group-addon">Name:</div>
-            <input class="form-control" type="text"  name="search_LIKE_name" value="${param.search_LIKE_name}">
+            <section id="isss"></section>
+            <input class="form-control" type="text" name="search_LIKE_name" value="${param.search_LIKE_name}">
         </div>
     </div>
     <button type="submit" class="btn btn-sm btn-default" id="search_btn">Search</button>
