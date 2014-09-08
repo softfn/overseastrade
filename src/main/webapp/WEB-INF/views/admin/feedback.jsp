@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -43,7 +44,7 @@
             <td>${feedback.email}</td>
             <td>${feedback.phone}</td>
             <td>${feedback.country}</td>
-            <td>${feedback.time}</td>
+            <td><fmt:formatDate value="${feedback.time}" pattern="yyyy-MM-dd:HH-mm-ss"/></td>
             <td><a href="${ctx}/admin/feedback/delete/${feedback.id}">Delete</a></td>
         </tr>
     </c:forEach>
