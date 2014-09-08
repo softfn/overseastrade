@@ -45,7 +45,7 @@
             <td>${feedback.email}</td>
             <td>${feedback.phone}</td>
             <td>${feedback.country}</td>
-            <td><fmt:formatDate value="${feedback.time}" pattern="yyyy-MM-dd:HH-mm-ss"/></td>
+            <td><fmt:formatDate value="${feedback.time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td><a href="${ctx}/admin/feedback/delete/${feedback.id}">Delete</a></td>
         </tr>
     </c:forEach>
