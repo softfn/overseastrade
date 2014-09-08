@@ -26,7 +26,7 @@ import cn.overseastrade.site.service.account.ShiroDbRealm.ShiroUser;
  */
 @Controller
 @RequestMapping(value = "/profile")
-public class ProfileController {
+public class ProfileController1 {
 
 	@Autowired
 	private AccountService accountService;

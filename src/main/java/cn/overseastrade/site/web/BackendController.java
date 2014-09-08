@@ -60,12 +60,6 @@ public class BackendController {
         return "admin/faq";
     }
 
-    @RequestMapping(value = "feedback")
-    public String feedback(Model model) {
-        model.addAttribute("activeId", "feedback");
-        return "admin/feedback";
-    }
-
     @RequestMapping(value = "contactus")
     public String contactus(Model model) {
         Article article = articleService.getArticle(ArticleType.contactus.name());

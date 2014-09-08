@@ -19,7 +19,7 @@ public class LoginController {
     public String login() {
         Subject subject = SecurityUtils.getSubject();
         if (subject != null && subject.isAuthenticated()) {
-            return "/admin/home";
+            return "redirect:/logout";
         }
         return "admin/login";
     }

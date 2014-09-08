@@ -4,7 +4,6 @@
 <html>
 <head>
     <title>Home</title>
-    <link href="${ctx}/static/styles/backend.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
    home

@@ -1,6 +1,7 @@
 package cn.overseastrade.site.entity;
 
 import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
@@ -20,6 +21,7 @@ public class Feedback extends IdEntity {
     private String country;
     private String company;
     private String site;
+    private String state;
     private Date time;
 
     @NotBlank
@@ -100,6 +102,14 @@ public class Feedback extends IdEntity {
         this.site = site;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public Date getTime() {
         return time;
     }
@@ -120,6 +130,7 @@ public class Feedback extends IdEntity {
                 ", country='" + country + '\'' +
                 ", company='" + company + '\'' +
                 ", site='" + site + '\'' +
+                ", state='" + state + '\'' +
                 ", time=" + time +
                 '}';
     }

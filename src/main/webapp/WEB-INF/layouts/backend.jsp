@@ -20,6 +20,12 @@
     <script src="${ctx}/static/jquery-validation/1.11.1/messages_bs_zh.js" type="text/javascript"></script>
     <link href="${ctx}/static/styles/backend.css" type="text/css" rel="stylesheet"/>
     <sitemesh:head/>
+    <style>
+        body {
+            min-height: 600px;
+            padding-top: 60px;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,11 +49,11 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><shiro:principal property="name"/> <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <shiro:hasRole name="admin">
-                            <li><a href="${ctx}/admin/user">Admin Users</a></li>
-                            <li class="divider"></li>
-                        </shiro:hasRole>
-                        <li><a href="${ctx}/profile">Edit Profile</a></li>
+                        <%--<shiro:hasRole name="admin">--%>
+                            <%--<li><a href="${ctx}/admin/user">Admin Users</a></li>--%>
+                            <%--<li class="divider"></li>--%>
+                        <%--</shiro:hasRole>--%>
+                        <li><a href="${ctx}/admin/profile">Edit Profile</a></li>
                         <li><a href="${ctx}/logout">Logout</a></li>
                     </ul>
                 </li>

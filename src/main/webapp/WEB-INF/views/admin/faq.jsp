@@ -4,7 +4,6 @@
 <html>
 <head>
     <title>FAQ</title>
-    <link href="${ctx}/static/styles/backend.css" type="text/css" rel="stylesheet"/>
     <script charset="utf-8" src="${ctx}/static/kindeditor/kindeditor.js"></script>
     <script charset="utf-8" src="${ctx}/static/kindeditor/lang/zh_CN.js"></script>
 </head>
