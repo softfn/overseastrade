@@ -32,6 +32,6 @@ public class FeedbackController {
         }
         email.setTime(new Date());
         feedbackService.save(email);
-        return "redirect:/products";
+        return "feedback/success";
     }
 }

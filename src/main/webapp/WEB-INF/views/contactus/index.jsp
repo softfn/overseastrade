@@ -4,17 +4,6 @@
 <html>
 <head>
     <title>Contact us</title>
-    <style>
-        .title {
-            height: 26px;
-            line-height: 26px;
-            padding: 0 10px;
-            font-weight: bold;
-            color: #3680ad;
-            background-color: #f4f4f4;
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <meta name="keywords" content="${contactus.keywords}">
 <body>

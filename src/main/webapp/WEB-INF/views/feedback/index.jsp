@@ -8,15 +8,6 @@
     <script src="${ctx}/static/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
     <style>
-        .title {
-            height: 26px;
-            line-height: 26px;
-            padding: 0 10px;
-            font-weight: bold;
-            color: #3680ad;
-            background-color: #f4f4f4;
-            margin-bottom: 20px;
-        }
         .red {
             color: red;
         }

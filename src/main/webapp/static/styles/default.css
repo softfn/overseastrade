@@ -57,3 +57,5 @@ a,img{border:0;}
 #more { margin-top: 3px; margin-right: 6px; float: right; width: 50px; height: 16px; line-height: 16px; background: #558EB9; border: 1px solid #4F9ED9; color: #F7F7F7; text-align: center; font-size: 10px; cursor: pointer; font-style: italic; }
 #footer { padding: 12px 0px; font-size: 95%; text-align: center; border-top: 6px solid #3681AE; clear: both; }
 #footer a { color: #999; text-decoration: underline; }
+
+.title { height: 26px; line-height: 26px; padding: 0 10px; font-weight: bold; color: #3680ad; background-color: #f4f4f4; margin-bottom: 20px; }
