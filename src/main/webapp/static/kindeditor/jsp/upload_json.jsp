@@ -1,19 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*,java.io.*" %>
+<%@ page import="com.fasterxml.jackson.databind.ObjectMapper,org.apache.commons.fileupload.FileItem" %>
+<%@ page import="org.apache.commons.fileupload.FileItemFactory" %>
+<%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
+<%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload" %>
+<%@ page import="java.io.File" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.io.StringWriter" %>
+<%@ page import="java.io.Writer" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="org.apache.commons.fileupload.*" %>
-<%@ page import="org.apache.commons.fileupload.disk.*" %>
-<%@ page import="org.apache.commons.fileupload.servlet.*" %>
-<%@ page import="org.json.simple.*" %>
+<%@ page import="java.util.*" %>
 <%
-
-/**
- * KindEditor JSP
- * 
- * 本JSP程序是演示程序，建议不要直接在实际项目中使用。
- * 如果您确定直接使用本程序，使用之前请仔细确认相关安全设置。
- * 
- */
 
 //文件保存目录路径
 String savePath = pageContext.getServletContext().getRealPath("/") + "attached/";
@@ -28,8 +24,8 @@ extMap.put("flash", "swf,flv");
 extMap.put("media", "swf,flv,mp3,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb");
 extMap.put("file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2");
 
-//最大文件大小
-long maxSize = 1000000;
+//最大文件大小10M
+long maxSize = 10*1000000;
 
 response.setContentType("text/html; charset=UTF-8");
 
@@ -105,18 +101,24 @@ while (itr.hasNext()) {
 			return;
 		}
 
-		JSONObject obj = new JSONObject();
-		obj.put("error", 0);
-		obj.put("url", saveUrl + newFileName);
-		out.println(obj.toJSONString());
+        Map map = new HashMap();
+		map.put("error", 0);
+		map.put("url", saveUrl + newFileName);
+        ObjectMapper mapper = new ObjectMapper();
+        Writer strWriter = new StringWriter();
+        mapper.writeValue(strWriter, map);
+		out.println(strWriter.toString());
 	}
 }
 %>
 <%!
-private String getError(String message) {
-	JSONObject obj = new JSONObject();
-	obj.put("error", 1);
-	obj.put("message", message);
-	return obj.toJSONString();
+private String getError(String message) throws IOException {
+    Map map = new HashMap();
+    map.put("error", 1);
+    map.put("message", message);
+    ObjectMapper mapper = new ObjectMapper();
+    Writer strWriter = new StringWriter();
+    mapper.writeValue(strWriter, map);
+	return strWriter.toString();
 }
 %>
