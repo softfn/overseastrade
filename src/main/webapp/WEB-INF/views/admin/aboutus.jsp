@@ -33,7 +33,7 @@
         <div class="form-group">
             <label for="keywords" class="col-sm-2 control-label"></label>
             <div class="col-sm-8">
-                <input type="submit" id="submit" class="btn btn-default btn-sm">
+                <input type="submit" id="submit" value="Submit" class="btn btn-default btn-sm">
             </div>
         </div>
     </form>

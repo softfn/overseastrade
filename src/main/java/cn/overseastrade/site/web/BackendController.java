@@ -77,7 +77,4 @@ public class BackendController {
         return "redirect:/admin/aboutus";
     }
 
-    enum ArticleType {
-        aboutus, faq, contactus;
-    }
 }

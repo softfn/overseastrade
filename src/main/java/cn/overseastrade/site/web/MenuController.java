@@ -1,5 +1,8 @@
 package cn.overseastrade.site.web;
 
+import cn.overseastrade.site.entity.Article;
+import cn.overseastrade.site.service.ArticleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,13 +14,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class MenuController {
+    @Autowired
+    private ArticleService articleService;
+
     @RequestMapping(value = "/home")
     public String home() {
         return "index";
     }
 
     @RequestMapping(value = "/aboutus")
-    public String ablutus() {
+    public String ablutus(Model model) {
+        Article article = articleService.getArticle(ArticleType.aboutus.name());
+        model.addAttribute("aboutus", article);
         return "aboutus/index";
     }
 
