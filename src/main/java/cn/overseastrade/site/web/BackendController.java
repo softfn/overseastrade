@@ -54,6 +54,8 @@ public class BackendController {
 
     @RequestMapping(value = "faq")
     public String faq(Model model) {
+        Article article = articleService.getArticle(ArticleType.faq.name());
+        model.addAttribute("faq", article);
         model.addAttribute("activeId", "faq");
         return "admin/faq";
     }
@@ -66,6 +68,8 @@ public class BackendController {
 
     @RequestMapping(value = "contactus")
     public String contactus(Model model) {
+        Article article = articleService.getArticle(ArticleType.contactus.name());
+        model.addAttribute("contactus", article);
         model.addAttribute("activeId", "contactus");
         return "admin/contactus";
     }
@@ -74,7 +78,15 @@ public class BackendController {
     public String saveArticle(@Valid Article article) {
         article.setTime(new Date());
         articleService.saveArticle(article);
-        return "redirect:/admin/aboutus";
+        if (article.getId().equals(ArticleType.aboutus.name())) {
+            return "redirect:/admin/aboutus";
+        } else if (article.getId().equals(ArticleType.faq.name())) {
+            return "redirect:/admin/faq";
+        } else if (article.getId().equals(ArticleType.contactus.name())) {
+            return "redirect:/admin/contactus";
+        } else {
+            return "redirect:/admin/home";
+        }
     }
 
 }

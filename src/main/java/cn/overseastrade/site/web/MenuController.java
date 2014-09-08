@@ -45,7 +45,9 @@ public class MenuController {
     }
 
     @RequestMapping(value = "/faq")
-    public String faq() {
+    public String faq(Model model) {
+        Article article = articleService.getArticle(ArticleType.faq.name());
+        model.addAttribute("faq", article);
         return "faq/index";
     }
 
@@ -55,7 +57,9 @@ public class MenuController {
     }
 
     @RequestMapping(value = "/contactus")
-    public String contactus() {
+    public String contactus(Model model) {
+        Article article = articleService.getArticle(ArticleType.contactus.name());
+        model.addAttribute("contactus", article);
         return "contactus/index";
     }
 

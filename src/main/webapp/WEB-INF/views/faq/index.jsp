@@ -4,10 +4,21 @@
 <html>
 <head>
     <title>FAQ</title>
+    <style>
+        .title {
+            height: 26px;
+            line-height: 26px;
+            padding: 0 10px;
+            font-weight: bold;
+            color: #3680ad;
+            background-color: #f4f4f4;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
+<meta name="keywords" content="${faq.keywords}">
 <body>
-<div>
-
-</div>
+<div class="title">${faq.subject}</div>
+<div style="padding: 0 20px">${faq.content}</div>
 </body>
 </html>

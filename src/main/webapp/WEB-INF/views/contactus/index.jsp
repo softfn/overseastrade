@@ -4,10 +4,21 @@
 <html>
 <head>
     <title>Contact us</title>
+    <style>
+        .title {
+            height: 26px;
+            line-height: 26px;
+            padding: 0 10px;
+            font-weight: bold;
+            color: #3680ad;
+            background-color: #f4f4f4;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
+<meta name="keywords" content="${contactus.keywords}">
 <body>
-<div>
-
-</div>
+<div class="title">${contactus.subject}</div>
+<div style="padding: 0 20px">${contactus.content}</div>
 </body>
 </html>
