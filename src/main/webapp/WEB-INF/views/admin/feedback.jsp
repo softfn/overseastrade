@@ -39,7 +39,7 @@
     <tbody>
     <c:forEach items="${feedbacks.content}" var="feedback">
         <tr>
-            <td><a href="${ctx}/admin/feedback/update/${feedback.id}">${feedback.title}</a></td>
+            <td><a href="${ctx}/admin/feedback/view/${feedback.id}">${feedback.title}</a></td>
             <td>${feedback.content}</td>
             <td>${feedback.name}</td>
             <td>${feedback.email}</td>

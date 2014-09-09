@@ -70,4 +70,12 @@ public class FeedbackService {
         Specification<Feedback> spec = DynamicSpecifications.bySearchFilter(filters.values(), Feedback.class);
         return spec;
     }
+
+    public void deleteFeedback(Long id) {
+        feedbackDao.delete(id);
+    }
+
+    public Feedback getFeedback(Long id) {
+        return feedbackDao.findOne(id);
+    }
 }
