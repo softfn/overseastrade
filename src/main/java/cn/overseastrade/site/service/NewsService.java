@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springside.modules.persistence.DynamicSpecifications;
 import org.springside.modules.persistence.SearchFilter;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -64,4 +66,11 @@ public class NewsService {
     public News getNews(Long id) {
         return newsDao.findOne(id);
     }
+
+    public List<News> findTopNews() {
+        PageRequest pageRequest = buildPageRequest(1, 10, "time");
+        Specification<News> spec = buildSpecification(new HashMap<String, Object>());
+        return newsDao.findAll(spec, pageRequest).getContent();
+    }
+
 }

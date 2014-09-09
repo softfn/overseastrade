@@ -1,13 +1,18 @@
 package cn.overseastrade.site.web;
 
 import cn.overseastrade.site.entity.Article;
+import cn.overseastrade.site.entity.News;
 import cn.overseastrade.site.service.ArticleService;
+import cn.overseastrade.site.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * Created by softfn on 8/29/2014.
@@ -17,9 +22,13 @@ public class MenuController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/home")
-    public String home() {
-        return "index";
+    @Autowired
+    private NewsService newsService;
+
+    @ModelAttribute
+    public void findTopNews(Model model) {
+        List<News> topNews = newsService.findTopNews();
+        model.addAttribute("newses", topNews);
     }
 
     @RequestMapping(value = "/aboutus")

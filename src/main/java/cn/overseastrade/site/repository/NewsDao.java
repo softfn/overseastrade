@@ -8,4 +8,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * Created by softfn on 9/1/2014.
  */
 public interface NewsDao extends PagingAndSortingRepository<News, Long>, JpaSpecificationExecutor<News> {
+
 }

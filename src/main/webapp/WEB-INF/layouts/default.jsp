@@ -45,6 +45,9 @@
                     <div class="grid-header">Latest News</div>
                     <div class="grid-container">
                         <ul>
+                            <c:forEach items="${newses}" var="news">
+                                <li><img src="${ctx}/static/images/sn/3.gif"> ${news.title}</li>
+                            </c:forEach>
                             <li><img src="${ctx}/static/images/sn/1.gif"> Shenzhen Overseas is fe <img src="${ctx}/static/images/new.gif"></li>
                             <li><img src="${ctx}/static/images/sn/2.gif"> Shenzhen Overseas <img src="${ctx}/static/images/new.gif"></li>
                             <li><img src="${ctx}/static/images/sn/3.gif"> Shenzhen Overseas</li>
