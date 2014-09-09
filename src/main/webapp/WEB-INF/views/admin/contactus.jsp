@@ -7,6 +7,8 @@
     <link href="${ctx}/static/styles/backend.css" type="text/css" rel="stylesheet"/>
     <script charset="utf-8" src="${ctx}/static/kindeditor/kindeditor.js"></script>
     <script charset="utf-8" src="${ctx}/static/kindeditor/lang/zh_CN.js"></script>
+    <link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet"/>
+    <script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -16,7 +18,7 @@
         <div class="form-group">
             <label for="subject" class="col-sm-2 control-label">Subject</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="subject" name="subject" value="${contactus.subject}" placeholder="subject">
+                <input type="text" class="form-control" id="subject" name="subject" value="${contactus.subject}" placeholder="subject" required autofocus>
             </div>
         </div>
         <div class="form-group">
@@ -42,6 +44,7 @@
 <script type="text/javascript">
     var editor;
     $(document).ready(function () {
+        $(".form-horizontal").validate();
         $("#content").css("height", $(document).height() - 220);
         KindEditor.ready(function (K) {
             editor = K.create('textarea[name="content"]', {

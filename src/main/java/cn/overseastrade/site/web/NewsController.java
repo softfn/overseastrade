@@ -16,6 +16,7 @@ import org.springside.modules.web.Servlets;
 
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -53,8 +54,9 @@ public class NewsController {
         return "admin/news";
     }
 
-    @RequestMapping(value = "news/save")
+    @RequestMapping(value = "news/save", method = RequestMethod.POST)
     public String save(@Valid News news) {
+        news.setTime(new Date());
         newsService.save(news);
         return "redirect:/admin/news";
     }

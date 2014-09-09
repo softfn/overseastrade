@@ -33,7 +33,7 @@
     <c:forEach items="${newses.content}" var="news">
         <tr>
             <td>${news.id}</td>
-            <td><a href="${ctx}/admin/news/view/${news.id}">${news.title}</a></td>
+            <td>${news.title}</td>
             <td>${news.content}</td>
             <td><fmt:formatDate value="${news.time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td><a href="${ctx}/admin/news/edit/${news.id}">Edit</a> | <a href="${ctx}/admin/news/delete/${news.id}">Delete</a></td>

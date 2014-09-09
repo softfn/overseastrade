@@ -4,6 +4,8 @@
     <title>${news.title} Edit</title>
     <script charset="utf-8" src="${ctx}/static/kindeditor/kindeditor.js"></script>
     <script charset="utf-8" src="${ctx}/static/kindeditor/lang/zh_CN.js"></script>
+    <link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet"/>
+    <script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="container">
@@ -12,13 +14,13 @@
         <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Title</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="title" name="title" value="${news.title}" placeholder="title">
+                <input type="text" class="form-control" id="title" name="title" value="${news.title}" placeholder="title" required autofocus>
             </div>
         </div>
         <div class="form-group">
             <label for="content" class="col-sm-2 control-label">Content</label>
             <div class="col-sm-8">
-                <textarea class="form-control" id="content" name="content">${contactus.content}</textarea>
+                <textarea class="form-control" id="content" name="content" required>${news.content}</textarea>
             </div>
         </div>
         <div class="form-group">
@@ -33,6 +35,7 @@
 <script type="text/javascript">
     var editor;
     $(document).ready(function () {
+        $(".form-horizontal").validate();
         $("#content").css("height", $(document).height() - 200);
         KindEditor.ready(function (K) {
             editor = K.create('textarea[name="content"]', {
