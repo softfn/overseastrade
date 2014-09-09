@@ -40,12 +40,6 @@ public class BackendController {
         return "admin/products";
     }
 
-    @RequestMapping(value = "news")
-    public String news(Model model) {
-        model.addAttribute("activeId", "news");
-        return "admin/news";
-    }
-
     @RequestMapping(value = "download")
     public String download(Model model) {
         model.addAttribute("activeId", "download");

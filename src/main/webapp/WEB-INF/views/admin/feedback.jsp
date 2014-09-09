@@ -26,19 +26,21 @@
 <table id="contentTable" class="table table-striped table-bordered table-condensed">
     <thead>
     <tr>
-        <th>Title</th>
+        <th width="30px">ID</th>
+        <th width="140px">Title</th>
         <th>Content</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Country</th>
-        <th>Time</th>
-        <th>Manage</th>
+        <th width="80px">Name</th>
+        <th width="140px">Email</th>
+        <th width="80px">Phone</th>
+        <th width="120px">Country</th>
+        <th width="150px">Feedback Time</th>
+        <th width="60px">Manage</th>
     </tr>
     </thead>
     <tbody>
     <c:forEach items="${feedbacks.content}" var="feedback">
         <tr>
+            <td>${feedback.id}</td>
             <td><a href="${ctx}/admin/feedback/view/${feedback.id}">${feedback.title}</a></td>
             <td>${feedback.content}</td>
             <td>${feedback.name}</td>

@@ -26,13 +26,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="keywords" class="col-sm-2 control-label">Content</label>
+            <label for="content" class="col-sm-2 control-label">Content</label>
             <div class="col-sm-8">
                 <textarea class="form-control" id="content" name="content">${contactus.content}</textarea>
             </div>
         </div>
         <div class="form-group">
-            <label for="keywords" class="col-sm-2 control-label"></label>
+            <label for="submit" class="col-sm-2 control-label"></label>
             <div class="col-sm-8">
                 <input type="submit" id="submit" value="Submit" class="btn btn-default btn-sm">
             </div>

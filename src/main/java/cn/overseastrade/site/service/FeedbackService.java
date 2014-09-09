@@ -3,8 +3,6 @@ package cn.overseastrade.site.service;
 import cn.overseastrade.site.entity.Feedback;
 import cn.overseastrade.site.repository.FeedbackDao;
 import cn.overseastrade.site.service.email.MimeMailService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,8 +21,6 @@ import java.util.Map;
 @Component
 @Transactional
 public class FeedbackService {
-    private static Logger logger = LoggerFactory.getLogger(FeedbackService.class);
-
     private FeedbackDao feedbackDao;
     private MimeMailService mimeMailService;
 
