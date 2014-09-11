@@ -43,7 +43,7 @@
 <c:forEach items="${newsPage.content}" var="np">
     <div class="entry">
         <span class="etlf">
-            <a href="${ctx}/news/view/${np.id}">
+            <a href="${ctx}/news/view/${np.id}" target="_blank">
                 <c:choose>
                     <c:when test="${fn:length(np.title) > 90}">
                         <c:out value="${fn:substring(np.title, 0, 90)}…" />

@@ -64,6 +64,13 @@ public class MenuController {
         return "news/index";
     }
 
+    @RequestMapping(value = "/news/view/{id}", method = RequestMethod.GET)
+    public String getNews(@PathVariable("id") Long id, Model model) {
+        News news = newsService.getNews(id);
+        model.addAttribute("viewNews", news);
+        return "news/view";
+    }
+
     @RequestMapping(value = "/download")
     public String download() {
         return "download/index";

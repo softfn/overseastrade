@@ -47,7 +47,7 @@
             <td>
                 <c:choose>
                     <c:when test="${fn:length(news.content) > 90}">
-                       ${fn:substring(news.content, 0, 90)}…
+                        <c:out value="${fn:substring(news.content, 0, 90)}…" />
                     </c:when>
                     <c:otherwise>
                         <c:out value="${news.content}" />
