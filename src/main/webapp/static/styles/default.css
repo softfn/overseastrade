@@ -17,6 +17,7 @@ body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; c
 .grid-container {padding: 0 6px }
 .grid-container ul li { line-height: 23px; border-bottom: 1px dashed #dfdfdf }
 .grid-container ul li a { color: #000000; text-decoration: none;  }
+.grid-container ul li a:hover { text-decoration: none; color: #FF6600; }
 .grid-container ul li a img{ vertical-align: middle }
 #product-categories .grid-container { min-height: 266px; }
 #latest-news .grid-container { min-height: 242px; }

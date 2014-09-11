@@ -48,14 +48,16 @@
                         <ul>
                             <c:forEach items="${newses}" var="news" varStatus="vs">
                                 <li><img src="${ctx}/static/images/sn/${vs.count}.gif">
-                                    <c:choose>
-                                        <c:when test="${fn:length(news.title) > 28}">
-                                            <c:out value="${fn:substring(news.title, 0, 28)}…" />
-                                        </c:when>
-                                        <c:otherwise>
-                                           <c:out value="${news.title}" />
-                                         </c:otherwise>
-                                    </c:choose>
+                                    <a href="${ctx}/news/view/${news.id}">
+                                        <c:choose>
+                                            <c:when test="${fn:length(news.title) > 24}">
+                                                <c:out value="${fn:substring(news.title, 0, 24)}…" />
+                                            </c:when>
+                                            <c:otherwise>
+                                               <c:out value="${news.title}" />
+                                             </c:otherwise>
+                                        </c:choose>
+                                    </a>
                                 </li>
                             </c:forEach>
                             <%--<img src="${ctx}/static/images/new.gif">--%>

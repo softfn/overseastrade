@@ -57,8 +57,8 @@ public class MenuController {
         return news(1, model);
     }
 
-    @RequestMapping(value = "/news/{page}", method = RequestMethod.GET)
-    public String news(@PathVariable("page") int pageNumber, Model model) {
+    @RequestMapping(value = "/news/page/{pageNumber}", method = RequestMethod.GET)
+    public String news(@PathVariable("pageNumber") int pageNumber, Model model) {
         Page<News> newses = newsService.getNews(new HashMap(){}, pageNumber, 25, "time");
         model.addAttribute("newsPage", newses);
         return "news/index";
