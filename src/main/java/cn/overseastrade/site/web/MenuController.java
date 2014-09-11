@@ -5,14 +5,16 @@ import cn.overseastrade.site.entity.News;
 import cn.overseastrade.site.service.ArticleService;
 import cn.overseastrade.site.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springside.modules.web.Servlets;
 
+import javax.servlet.ServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by softfn on 8/29/2014.
@@ -31,6 +33,13 @@ public class MenuController {
         model.addAttribute("newses", topNews);
     }
 
+    @RequestMapping(value = {"/home", "/"})
+    public String home(Model model) {
+        List<News> topNews = newsService.findTopNews();
+        model.addAttribute("newses", topNews);
+        return "index";
+    }
+
     @RequestMapping(value = "/aboutus")
     public String ablutus(Model model) {
         Article article = articleService.getArticle(ArticleType.aboutus.name());
@@ -43,8 +52,10 @@ public class MenuController {
         return "products/index";
     }
 
-    @RequestMapping(value = "/news")
-    public String news() {
+    @RequestMapping(value = {"/news", "/news/{page}"}, method = RequestMethod.GET)
+    public String news(@PathVariable("page") int pageNumber, Model model) {
+        Page<News> newses = newsService.getNews(new HashMap(){}, pageNumber, 25, "time");
+        model.addAttribute("newsPage", newses);
         return "news/index";
     }
 

@@ -50,7 +50,7 @@
                                 <li><img src="${ctx}/static/images/sn/${vs.count}.gif">
                                     <c:choose>
                                         <c:when test="${fn:length(news.title) > 28}">
-                                            <c:out value="${fn:substring(news.title, 0, 28)}..." />
+                                            <c:out value="${fn:substring(news.title, 0, 28)}…" />
                                         </c:when>
                                         <c:otherwise>
                                            <c:out value="${news.title}" />

@@ -1,6 +1,5 @@
 package cn.overseastrade.site.web;
 
-import cn.overseastrade.site.entity.Feedback;
 import cn.overseastrade.site.entity.News;
 import cn.overseastrade.site.service.NewsService;
 import com.google.common.collect.Maps;
@@ -23,9 +22,7 @@ import java.util.Map;
  * Created by softfn on 9/1/2014.
  */
 @Controller
-@RequestMapping(value = "/admin")
 public class NewsController {
-    private static final String PAGE_SIZE = "15";
     private static Map<String, String> sortTypes = Maps.newLinkedHashMap();
     static {
         sortTypes.put("auto", "default");
@@ -36,9 +33,9 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
-    @RequestMapping(value = "news", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/news", method = RequestMethod.GET)
     public String list(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
-                       @RequestParam(value = "page.size", defaultValue = PAGE_SIZE) int pageSize,
+                       @RequestParam(value = "page.size", defaultValue = "15") int pageSize,
                        @RequestParam(value = "sortType", defaultValue = "auto") String sortType, Model model,
                        ServletRequest request) {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
@@ -54,27 +51,27 @@ public class NewsController {
         return "admin/news";
     }
 
-    @RequestMapping(value = "news/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/news/save", method = RequestMethod.POST)
     public String save(@Valid News news) {
         news.setTime(new Date());
         newsService.save(news);
         return "redirect:/admin/news";
     }
 
-    @RequestMapping(value = "news/add")
+    @RequestMapping(value = "/admin/news/add")
     public String add(Model model) {
         model.addAttribute("news", new News());
         return "admin/news_edit";
     }
 
-    @RequestMapping(value = "news/edit/{id}")
+    @RequestMapping(value = "/admin/news/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
         News news = newsService.getNews(id);
         model.addAttribute("news", news);
         return "admin/news_edit";
     }
 
-    @RequestMapping(value = "news/delete/{id}")
+    @RequestMapping(value = "/admin/news/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
         newsService.deleteNews(id);
         return "redirect:/admin/news";
