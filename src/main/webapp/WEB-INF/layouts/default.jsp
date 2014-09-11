@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="sitemesh" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
@@ -45,19 +46,19 @@
                     <div class="grid-header">Latest News</div>
                     <div class="grid-container">
                         <ul>
-                            <c:forEach items="${newses}" var="news">
-                                <li><img src="${ctx}/static/images/sn/3.gif"> ${news.title}</li>
+                            <c:forEach items="${newses}" var="news" varStatus="vs">
+                                <li><img src="${ctx}/static/images/sn/${vs.count}.gif">
+                                    <c:choose>
+                                        <c:when test="${fn:length(news.title) > 28}">
+                                            <c:out value="${fn:substring(news.title, 0, 28)}..." />
+                                        </c:when>
+                                        <c:otherwise>
+                                           <c:out value="${news.title}" />
+                                         </c:otherwise>
+                                    </c:choose>
+                                </li>
                             </c:forEach>
-                            <li><img src="${ctx}/static/images/sn/1.gif"> Shenzhen Overseas is fe <img src="${ctx}/static/images/new.gif"></li>
-                            <li><img src="${ctx}/static/images/sn/2.gif"> Shenzhen Overseas <img src="${ctx}/static/images/new.gif"></li>
-                            <li><img src="${ctx}/static/images/sn/3.gif"> Shenzhen Overseas</li>
-                            <li><img src="${ctx}/static/images/sn/4.gif"> Shenzhen Overseas</li>
-                            <li><img src="${ctx}/static/images/sn/5.gif"> Shenzhen Overseas</li>
-                            <li><img src="${ctx}/static/images/sn/6.gif"> Shenzhen Overseas</li>
-                            <li><img src="${ctx}/static/images/sn/7.gif"> Shenzhen Overseas</li>
-                            <li><img src="${ctx}/static/images/sn/8.gif"> Shenzhen Overseas</li>
-                            <li><img src="${ctx}/static/images/sn/9.gif"> Shenzhen Overseas</li>
-                            <li><img src="${ctx}/static/images/sn/10.gif"> Shenzhen Overseas</li>
+                            <%--<img src="${ctx}/static/images/new.gif">--%>
                         </ul>
                     </div>
                 </div>
