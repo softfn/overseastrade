@@ -4,8 +4,8 @@
     <title>${news.title} Edit</title>
     <script charset="utf-8" src="${ctx}/static/kindeditor/kindeditor.js"></script>
     <script charset="utf-8" src="${ctx}/static/kindeditor/lang/zh_CN.js"></script>
-    <link href="${ctx}/static/jquery-validation/1.11.1/validate.css" type="text/css" rel="stylesheet"/>
-    <script src="${ctx}/static/jquery-validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
+    <link href="${ctx}/static/validation/1.11.1/validate.css" type="text/css" rel="stylesheet"/>
+    <script src="${ctx}/static/validation/1.11.1/jquery.validate.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="container">
