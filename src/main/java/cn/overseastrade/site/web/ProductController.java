@@ -49,7 +49,7 @@ public class ProductController {
 
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("productPage", productPage);
-        model.addAttribute("activeId", "product");
+        model.addAttribute("activeId", "products");
         model.addAttribute("sortType", sortType);
         model.addAttribute("sortTypes", sortTypes);
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
