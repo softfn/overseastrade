@@ -52,6 +52,8 @@ public class Product extends IdEntity {
         this.brief = brief;
     }
 
+    @Lob
+    @Basic(fetch=FetchType.LAZY)
     public String getDescription() {
         return description;
     }
