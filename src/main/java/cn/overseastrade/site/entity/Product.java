@@ -77,7 +77,15 @@ public class Product extends IdEntity {
         this.pictures = pictures;
     }
 
-    @OneToMany(mappedBy="product",cascade={CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "ot_refer_product",
+            joinColumns = {
+                    @JoinColumn(name = "product_id", referencedColumnName = "id")
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "refer_product_id", referencedColumnName = "id")
+            }
+    )
     public List<ReferProduct> getReferProducts() {
         return referProducts;
     }
