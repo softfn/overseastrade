@@ -1,8 +1,10 @@
 package cn.overseastrade.site.web;
 
 import cn.overseastrade.site.entity.Article;
+import cn.overseastrade.site.entity.Download;
 import cn.overseastrade.site.entity.News;
 import cn.overseastrade.site.service.ArticleService;
+import cn.overseastrade.site.service.DownloadService;
 import cn.overseastrade.site.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,6 +28,9 @@ public class MenuController {
 
     @Autowired
     private NewsService newsService;
+
+    @Autowired
+    private DownloadService downloadService;
 
     @ModelAttribute
     public void findTopNews(Model model) {
@@ -59,7 +64,8 @@ public class MenuController {
 
     @RequestMapping(value = "/news/page/{pageNumber}", method = RequestMethod.GET)
     public String news(@PathVariable("pageNumber") int pageNumber, Model model) {
-        Page<News> newses = newsService.getNews(new HashMap(){}, pageNumber, 25, "time");
+        Page<News> newses = newsService.getNews(new HashMap() {
+        }, pageNumber, 25, "time");
         model.addAttribute("newsPage", newses);
         return "news/index";
     }
@@ -72,8 +78,23 @@ public class MenuController {
     }
 
     @RequestMapping(value = "/download")
-    public String download() {
+    public String download(Model model) {
+        return download(1, model);
+    }
+
+    @RequestMapping(value = "/download/page/{pageNumber}", method = RequestMethod.GET)
+    public String download(@PathVariable("pageNumber") int pageNumber, Model model) {
+        Page<Download> downloadPage = downloadService.getDownload(new HashMap() {
+        }, pageNumber, 25, "time");
+        model.addAttribute("downloadPage", downloadPage);
         return "download/index";
+    }
+
+    @RequestMapping(value = "/download/view/{id}", method = RequestMethod.GET)
+    public String getDownload(@PathVariable("id") Long id, Model model) {
+        Download download = downloadService.getDownload(id);
+        model.addAttribute("viewDownload", download);
+        return "download/view";
     }
 
     @RequestMapping(value = "/faq")
