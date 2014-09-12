@@ -22,7 +22,7 @@ public class Product extends IdEntity {
     private Date time;
 
     private List<Picture> pictures = new ArrayList<Picture>();
-    private List<ReferProduct> referProducts = new ArrayList<ReferProduct>();
+    private List<Product> referProducts = new ArrayList<Product>();
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -82,30 +82,17 @@ public class Product extends IdEntity {
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name = "ot_refer_product",
             joinColumns = {
-                    @JoinColumn(name = "product_id", referencedColumnName = "id")
+                    @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "refer_product_id", referencedColumnName = "id")
+                    @JoinColumn(name = "refer_product_id", referencedColumnName = "id", nullable = false)
             }
     )
-    public List<ReferProduct> getReferProducts() {
+    public List<Product> getReferProducts() {
         return referProducts;
     }
 
-    public void setReferProducts(List<ReferProduct> referProducts) {
+    public void setReferProducts(List<Product> referProducts) {
         this.referProducts = referProducts;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "category=" + category +
-                ", name='" + name + '\'' +
-                ", brief='" + brief + '\'' +
-                ", description='" + description + '\'' +
-                ", time=" + time +
-                ", pictures=" + pictures +
-                ", referProducts=" + referProducts +
-                '}';
     }
 }

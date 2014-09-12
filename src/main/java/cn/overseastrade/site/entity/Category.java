@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * @author wenbing.zhang
@@ -15,6 +16,7 @@ import javax.persistence.Table;
 public class Category extends IdEntity {
     private String name;
     private Category category;
+    private Date time;
 
     public String getName() {
         return name;
@@ -32,5 +34,22 @@ public class Category extends IdEntity {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "name='" + name + '\'' +
+                ", category=" + category +
+                ", time=" + time +
+                '}';
     }
 }
