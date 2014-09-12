@@ -77,7 +77,7 @@ public class Product extends IdEntity {
         this.pictures = pictures;
     }
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name = "ot_refer_product",
             joinColumns = {
                     @JoinColumn(name = "product_id", referencedColumnName = "id")
