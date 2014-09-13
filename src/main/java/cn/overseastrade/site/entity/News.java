@@ -2,7 +2,9 @@ package cn.overseastrade.site.entity;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -26,6 +28,7 @@ public class News extends IdEntity {
     }
 
     @NotBlank
+    @Basic(fetch = FetchType.LAZY)
     public String getContent() {
         return content;
     }
@@ -40,14 +43,5 @@ public class News extends IdEntity {
 
     public void setTime(Date time) {
         this.time = time;
-    }
-
-    @Override
-    public String toString() {
-        return "News{" +
-                "title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", time=" + time +
-                '}';
     }
 }
