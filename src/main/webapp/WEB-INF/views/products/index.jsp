@@ -14,7 +14,6 @@
         #scrollContainer{
             position:relative;
             width:764px;
-            /*margin:0 auto 20px;*/
             padding-bottom: 10px;
             display: none;
         }
@@ -29,7 +28,6 @@
             box-shadow: 0 1px 3px rgba(34,25,25,0.4);
             -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
             -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-
             -webkit-transition: top 1s ease, left 1s ease;
             -moz-transition: top 1s ease, left 1s ease;
             -o-transition: top 1s ease, left 1s ease;
