@@ -17,6 +17,7 @@ import java.util.List;
 public class Product extends IdEntity {
     private Category category;
     private String name;
+    private String keywords;
     private String brief;
     private String description;
     private Date time;
@@ -41,6 +42,14 @@ public class Product extends IdEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 
     @NotBlank
@@ -94,5 +103,16 @@ public class Product extends IdEntity {
 
     public void setReferProducts(List<Product> referProducts) {
         this.referProducts = referProducts;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", keywords='" + keywords + '\'' +
+                ", brief='" + brief + '\'' +
+                ", description='" + description + '\'' +
+                ", time=" + time +
+                '}';
     }
 }

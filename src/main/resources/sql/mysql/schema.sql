@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50140
 File Encoding         : 65001
 
-Date: 2014-09-13 13:34:22
+Date: 2014-09-13 15:03:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -179,6 +179,7 @@ CREATE TABLE `ot_product` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `category_id` bigint(20) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL,
+  `keywords` varchar(500) DEFAULT NULL,
   `brief` text,
   `description` longtext,
   `time` datetime DEFAULT NULL,
