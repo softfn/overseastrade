@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50140
 File Encoding         : 65001
 
-Date: 2014-09-13 11:11:08
+Date: 2014-09-13 13:34:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -161,7 +161,8 @@ CREATE TABLE `ot_picture` (
   `product_id` bigint(20) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL,
   `path` varchar(200) DEFAULT NULL,
-  `seq` int(255) DEFAULT NULL,
+  `seq` int(3) DEFAULT NULL,
+  `block_size` int(1) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
