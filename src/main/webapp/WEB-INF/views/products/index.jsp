@@ -8,9 +8,6 @@
     <script src="${ctx}/static/blocksit/blocksit.min.js"></script>
     <script src="${ctx}/static/waitforimages/jquery.waitforimages.min.js"></script>
     <style type="text/css">
-        #scrollPage {
-            display: none;
-        }
         #scrollContainer{
             position:relative;
             width:764px;
@@ -33,7 +30,6 @@
             -o-transition: top 1s ease, left 1s ease;
             -ms-transition: top 1s ease, left 1s ease;
         }
-
         .grid strong {
             border-bottom:1px dashed #ccc;
             margin:6px 0;
@@ -55,7 +51,7 @@
 </head>
 <body>
 <div id="scrollContainer">
-    <div id="scroll">
+    <div id="scroll" class="scroll">
         <div class="grid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img27.jpg" />
@@ -145,17 +141,19 @@
             <div class="meta">by Robert Strachan</div>
         </div>
     </div>
-    <div id="scrollPage" align="center"><a href="${ctx}/product/scroll/page/1"></a> </div>
+    <div id="scrollPage" align="center"><a href="${ctx}/product/scroll?page=1"></a> </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
         $("#scrollContainer").infinitescroll({
             navSelector: "#scrollPage",
             nextSelector: "#scrollPage a",
-            itemSelector: "#scroll " ,
-            animate: true,
-            maxPage: 30
+            itemSelector: ".scroll" ,
+            debug: true
+        }, function() {
+            alert(9);
         });
+
         $("#scrollContainer").waitForImages(function() {
             $("#scrollContainer").show();
             blocksItInit();
@@ -164,7 +162,7 @@
 
     function blocksItInit() {
         $('#scroll').BlocksIt({
-            numOfCol: 4,
+            numOfCol: 5,
             offsetX: 4,
             offsetY: 4
         });
