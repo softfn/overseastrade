@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50617
+Source Server Version : 50140
 Source Host           : localhost:3306
 Source Database       : overseastrade
 
 Target Server Type    : MYSQL
-Target Server Version : 50617
+Target Server Version : 50140
 File Encoding         : 65001
 
-Date: 2014-09-13 00:46:31
+Date: 2014-09-13 11:11:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -161,6 +161,7 @@ CREATE TABLE `ot_picture` (
   `product_id` bigint(20) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL,
   `path` varchar(200) DEFAULT NULL,
+  `seq` int(255) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

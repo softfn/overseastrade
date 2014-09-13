@@ -19,6 +19,7 @@ public class Picture extends IdEntity {
     private Product product;
     private String name;
     private String path;
+    private Integer seq;
     private Date time;
 
     @ManyToOne
@@ -57,5 +58,22 @@ public class Picture extends IdEntity {
         this.time = time;
     }
 
+    public Integer getSeq() {
+        return seq;
+    }
 
+    public void setSeq(Integer seq) {
+        this.seq = seq;
+    }
+
+    @Override
+    public String toString() {
+        return "Picture{" +
+                "product=" + product +
+                ", name='" + name + '\'' +
+                ", path='" + path + '\'' +
+                ", seq=" + seq +
+                ", time=" + time +
+                '}';
+    }
 }
