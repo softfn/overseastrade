@@ -57,7 +57,7 @@ public class MenuController {
         return "products/index";
     }
 
-    @RequestMapping(value = "/products/scroll?page={pageNumber}", method = RequestMethod.GET)
+    @RequestMapping(value = "/products/scroll/page/{pageNumber}", method = RequestMethod.GET)
     @ResponseBody
     public String products(@PathVariable("pageNumber") int pageNumber, Model model) {
         StringBuffer sb = new StringBuffer();

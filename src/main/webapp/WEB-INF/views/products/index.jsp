@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Products</title>
-    <script src="${ctx}/static/infinitescroll/jquery.infinitescroll.min.js"></script>
+    <script src="${ctx}/static/infinitescroll/jquery.infinitescroll.js"></script>
     <script src="${ctx}/static/blocksit/blocksit.min.js"></script>
     <script src="${ctx}/static/waitforimages/jquery.waitforimages.min.js"></script>
     <style type="text/css">
@@ -141,7 +141,7 @@
             <div class="meta">by Robert Strachan</div>
         </div>
     </div>
-    <div id="scrollPage" align="center"><a href="${ctx}/products/scroll?page=1"></a> </div>
+    <div id="scrollPage" align="center"><a href="${ctx}/products/scroll/page/1"></a> </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {
