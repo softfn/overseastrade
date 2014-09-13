@@ -21,7 +21,7 @@
         .grid{
             width:188px;
             min-height:100px;
-            padding: 10px;
+            padding: 8px;
             background:#fff;
             margin:8px;
             font-size:12px;
