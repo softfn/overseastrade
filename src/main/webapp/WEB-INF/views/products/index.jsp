@@ -141,7 +141,7 @@
             <div class="meta">by Robert Strachan</div>
         </div>
     </div>
-    <div id="scrollPage" align="center"><a href="${ctx}/product/scroll?page=1"></a> </div>
+    <div id="scrollPage" align="center"><a href="${ctx}/products/scroll?page=1"></a> </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function() {

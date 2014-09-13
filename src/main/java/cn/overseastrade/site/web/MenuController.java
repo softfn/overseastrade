@@ -57,6 +57,21 @@ public class MenuController {
         return "products/index";
     }
 
+    @RequestMapping(value = "/products/scroll?page={pageNumber}", method = RequestMethod.GET)
+    @ResponseBody
+    public String products(@PathVariable("pageNumber") int pageNumber, Model model) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("<div class=\"grid\">");
+        sb.append(" <div class=\"imgholder\">");
+        sb.append("     <img src=\"http://www.inwebson.com/demo/blocksit-js/demo2/images/img2.jpg\" />");
+        sb.append(" </div>");
+        sb.append("<strong>Battle Field</strong>");
+        sb.append("<p>Battle Field for you...</p>");
+        sb.append("<div class=\"meta\">by Andrea Andrade</div>");
+        sb.append("</div>");
+        return sb.toString();
+    }
+
     @RequestMapping(value = "/news")
     public String news(Model model) {
         return news(1, model);
