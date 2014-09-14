@@ -1,172 +1,78 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>Products</title>
-    <script src="${ctx}/static/infinitescroll/jquery.infinitescroll.js"></script>
-    <script src="${ctx}/static/blocksit/blocksit.min.js"></script>
-    <script src="${ctx}/static/waitforimages/jquery.waitforimages.min.js"></script>
+    <title>Products ${title}</title>
+    <link href="${ctx}/static/pagination/pagination.css" type="text/css" rel="stylesheet"/>
+    <script src="${ctx}/static/pagination/jquery.pagination.js" type="text/javascript"></script>
     <style type="text/css">
-        #scrollContainer{
-            position:relative;
-            width:764px;
-            padding-bottom: 10px;
-            display: none;
+        .entry {
+            margin: 0 20px 0 6px;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px dashed #dedede;
         }
-        .grid{
-            width:188px;
-            min-height:100px;
-            padding: 8px;
-            background:#fff;
-            margin:8px;
-            font-size:12px;
-            float:left;
-            box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-            -moz-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-            -webkit-box-shadow: 0 1px 3px rgba(34,25,25,0.4);
-            -webkit-transition: top 1s ease, left 1s ease;
-            -moz-transition: top 1s ease, left 1s ease;
-            -o-transition: top 1s ease, left 1s ease;
-            -ms-transition: top 1s ease, left 1s ease;
+
+        .etlf {
+            float: left;
+            background: url("${ctx}/static/images/ar.gif") no-repeat 8px 8px;
+            text-indent: 1.5em;
         }
-        .grid strong {
-            border-bottom:1px dashed #ccc;
-            margin:6px 0;
-            display:block;
-            padding:0 0 5px;
-            font-size:14px;
+
+        .etlf a {
+            color: #000000;
+            text-decoration: none;
         }
-        .grid .meta{
-            text-align:right;
-            color:#777;
-            font-style:italic;
+
+        .etlf a:hover {
+            text-decoration: none;
+            color: #3681AE;
+            font-weight: bold;
         }
-        .grid .imgholder img{
-            max-width:100%;
-            background:#ccc;
-            display:block;
+
+        .etrt {
+            float: right;
         }
     </style>
 </head>
 <body>
-<div id="scrollContainer">
-    <div id="scroll" class="scroll">
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img27.jpg" />
-            </div>
-            <strong>Sunset Lake</strong>
-            <p>A peaceful sunset view...</p>
-            <div class="meta">by j osborn</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg" />
-            </div>
-            <strong>Bridge to Heaven</strong>
-            <p>Where is the bridge lead to?</p>
-            <div class="meta">by SigitEko</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img15.jpg" />
-            </div>
-            <strong>Autumn</strong>
-            <p>The fall of the tree...</p>
-            <div class="meta">by Lars van de Goor</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img23.jpg" />
-            </div>
-            <strong>Winter Whisper</strong>
-            <p>Winter feel...</p>
-            <div class="meta">by Andrea Andrade</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img17.jpg" />
-            </div>
-            <strong>Light</strong>
-            <p>The only shinning light...</p>
-            <div class="meta">by Lars van de Goor</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img22.jpg" />
-            </div>
-            <strong>Rooster's Ranch</strong>
-            <p>Rooster's ranch landscape...</p>
-            <div class="meta">by Andrea Andrade</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img16.jpg" />
-            </div>
-            <strong>Autumn Light</strong>
-            <p>Sun shinning into forest...</p>
-            <div class="meta">by Lars van de Goor</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img21.jpg" />
-            </div>
-            <strong>Yellow cloudy</strong>
-            <p>It is yellow cloudy...</p>
-            <div class="meta">by Zsolt Zsigmond</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img28.jpg" />
-            </div>
-            <strong>Herringfleet Mill</strong>
-            <p>Just a herringfleet mill...</p>
-            <div class="meta">by Ian Flindt</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img2.jpg" />
-            </div>
-            <strong>Battle Field</strong>
-            <p>Battle Field for you...</p>
-            <div class="meta">by Andrea Andrade</div>
-        </div>
-        <div class="grid">
-            <div class="imgholder">
-                <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img24.jpg" />
-            </div>
-            <strong>Sundays Sunset</strong>
-            <p>Beach view sunset...</p>
-            <div class="meta">by Robert Strachan</div>
-        </div>
+<div class="title">${title}</div>
+<c:forEach items="${productPage.content}" var="pp">
+    <div class="entry">
+        <span class="etlf">
+            <a href="${ctx}/products/view/${pp.id}">
+                <c:choose>
+                    <c:when test="${fn:length(pp.name) > 90}">
+                        <c:out value="${fn:substring(pp.name, 0, 90)}…" />
+                    </c:when>
+                    <c:otherwise>
+                        <c:out value="${pp.name}" />
+                    </c:otherwise>
+                </c:choose>
+            </a>
+        </span>
+        <span class="etrt"><fmt:formatDate value="${pp.time}" pattern="dd/MM/yyyy"/></span>
     </div>
-    <div id="scrollPage" align="center"><a href="${ctx}/products/scroll/page/1"></a> </div>
-</div>
+</c:forEach>
+<div id="Pagination" class="pagination"></div>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("#scrollContainer").infinitescroll({
-            navSelector: "#scrollPage",
-            nextSelector: "#scrollPage a",
-            itemSelector: ".scroll" ,
-            debug: true
-        }, function() {
-            alert(9);
-        });
-
-        $("#scrollContainer").waitForImages(function() {
-            $("#scrollContainer").show();
-            blocksItInit();
+    var curPage = ${productPage.number};
+    var perSize = ${productPage.size};
+    var count = ${productPage.totalElements};
+    $(document).ready(function () {
+        $("#Pagination").pagination(count, {
+            current_page: curPage,
+            items_per_page: perSize,
+            callback: function (index) {
+                if (curPage != index) {
+                    window.location.href = "${ctx}/products?&${searchParams}&page=" + (index + 1) ;
+                }
+            }
         });
     });
-
-    function blocksItInit() {
-        $('#scroll').BlocksIt({
-            numOfCol: 5,
-            offsetX: 4,
-            offsetY: 4
-        });
-    }
 </script>
 </body>
 </html>

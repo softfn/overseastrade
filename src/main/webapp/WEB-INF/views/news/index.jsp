@@ -40,21 +40,21 @@
 </head>
 <body>
 <div class="title">News</div>
-<c:forEach items="${newsPage.content}" var="dp">
+<c:forEach items="${newsPage.content}" var="pp">
     <div class="entry">
         <span class="etlf">
-            <a href="${ctx}/news/view/${dp.id}" target="_blank">
+            <a href="${ctx}/news/view/${pp.id}" target="_blank">
                 <c:choose>
-                    <c:when test="${fn:length(dp.title) > 90}">
-                        <c:out value="${fn:substring(dp.title, 0, 90)}…" />
+                    <c:when test="${fn:length(pp.title) > 90}">
+                        <c:out value="${fn:substring(pp.title, 0, 90)}…" />
                     </c:when>
                     <c:otherwise>
-                        <c:out value="${dp.title}" />
+                        <c:out value="${pp.title}" />
                     </c:otherwise>
                 </c:choose>
             </a>
         </span>
-        <span class="etrt"><fmt:formatDate value="${dp.time}" pattern="dd/MM/yyyy"/></span>
+        <span class="etrt"><fmt:formatDate value="${pp.time}" pattern="dd/MM/yyyy"/></span>
     </div>
 </c:forEach>
 <div id="Pagination" class="pagination"></div>

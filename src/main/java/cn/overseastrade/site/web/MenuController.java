@@ -60,11 +60,6 @@ public class MenuController {
         return "aboutus/index";
     }
 
-    @RequestMapping(value = "/products")
-    public String products(Model model) {
-        return "products/index";
-    }
-
     @RequestMapping(value = "/products/scroll/page/{pageNumber}", method = RequestMethod.GET)
     @ResponseBody
     public String products(@PathVariable("pageNumber") int pageNumber, Model model) {
@@ -139,15 +134,24 @@ public class MenuController {
         return "contactus/index";
     }
 
-    @RequestMapping(value = "/products/more")
-    public String moreProducts() {
+    @RequestMapping(value = "/products")
+    public String products(@RequestParam(value = "categoryId", defaultValue = "1") Long categoryId,
+                           @RequestParam(value = "page", defaultValue = "1") int pageNumber, Model model,
+                           ServletRequest request) {
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+        model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+
+        Category category = categoryService.getCategory(categoryId);
+        if (categoryId == 1) {
+            model.addAttribute("title", "Products / " + category.getName());
+        } else {
+            searchParams.put("search_EQ_category", category);
+            model.addAttribute("title", "Products");
+        }
+
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
+        model.addAttribute("productPage", productPage);
+
         return "products/index";
     }
-
-    @RequestMapping(value = "/products/search/{keywords}", method = RequestMethod.GET)
-    public String searchProducts(@PathVariable("keywords") String keywords, Model model) {
-        System.out.println("keywords = [" + keywords + "], model = [" + model + "]");
-        return "products/search";
-    }
-
 }

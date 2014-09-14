@@ -51,7 +51,7 @@
     </div>
 </div>
 <div id="hotproducts">
-    <div class="content-title">Hot Pouducts<div id="more" onclick="window.location.href = '${ctx}/products/more'">More >></div></div>
+    <div class="content-title">Hot Pouducts<div id="more" onclick="window.location.href = '${ctx}/products'">More >></div></div>
     <div class="product-grid">
         <div class="product-item"></div>
         <div class="product-item"></div>
