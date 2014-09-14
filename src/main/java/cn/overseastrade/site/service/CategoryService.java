@@ -59,7 +59,7 @@ public class CategoryService {
     }
 
     public void deleteCategory(Long id) {
-        List<Category> categories = categoryDao.findByCategoryId(id);
+        List<Category> categories = categoryDao.findByCategoryId(id, new Sort(Sort.Direction.DESC, "id"));
         if (categories != null && categories.size() > 0) {
             for (Category category : categories) {
                 deleteCategory(category.getId());
@@ -74,6 +74,10 @@ public class CategoryService {
 
     public Iterable<Category> getAllCategory() {
         return categoryDao.findAll();
+    }
+
+    public List<Category> findFirstCategories() {
+        return categoryDao.findByCategoryId(null, new Sort(Sort.Direction.ASC, "seq"));
     }
 
 }

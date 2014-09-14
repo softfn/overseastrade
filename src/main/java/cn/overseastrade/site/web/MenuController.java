@@ -1,11 +1,7 @@
 package cn.overseastrade.site.web;
 
-import cn.overseastrade.site.entity.Article;
-import cn.overseastrade.site.entity.Download;
-import cn.overseastrade.site.entity.News;
-import cn.overseastrade.site.service.ArticleService;
-import cn.overseastrade.site.service.DownloadService;
-import cn.overseastrade.site.service.NewsService;
+import cn.overseastrade.site.entity.*;
+import cn.overseastrade.site.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -32,10 +28,22 @@ public class MenuController {
     @Autowired
     private DownloadService downloadService;
 
+    @Autowired
+    private ProductService productService;
+
+    @Autowired
+    private CategoryService categoryService;
+
     @ModelAttribute
     public void findTopNews(Model model) {
         List<News> topNews = newsService.findTopNews();
         model.addAttribute("newses", topNews);
+    }
+
+    @ModelAttribute
+    public void firstCategories(Model model) {
+        List<Category> firstCategories = categoryService.findFirstCategories();
+        model.addAttribute("firstCategories", firstCategories);
     }
 
     @RequestMapping(value = {"/home", "/"})
@@ -53,7 +61,7 @@ public class MenuController {
     }
 
     @RequestMapping(value = "/products")
-    public String products() {
+    public String products(Model model) {
         return "products/index";
     }
 

@@ -17,6 +17,7 @@ public class Category extends IdEntity {
     private String name;
     private Category category;
     private Integer seq;
+    private Boolean isNew;
     private Date time;
 
     public String getName() {
@@ -53,12 +54,21 @@ public class Category extends IdEntity {
         this.time = time;
     }
 
+    public Boolean getIsNew() {
+        return isNew;
+    }
+
+    public void setIsNew(Boolean isNew) {
+        this.isNew = isNew;
+    }
+
     @Override
     public String toString() {
         return "Category{" +
                 "name='" + name + '\'' +
-                ", category=" + category +
+                ", category=" + category.getId() +
                 ", seq=" + seq +
+                ", isNew=" + isNew +
                 ", time=" + time +
                 '}';
     }

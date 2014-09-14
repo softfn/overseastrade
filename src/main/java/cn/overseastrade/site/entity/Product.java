@@ -79,7 +79,7 @@ public class Product extends IdEntity {
         this.time = time;
     }
 
-    @OneToMany(mappedBy="product",cascade={CascadeType.ALL})
+    @OneToMany(mappedBy="product",cascade={CascadeType.ALL}, fetch = FetchType.LAZY)
     public List<Picture> getPictures() {
         return pictures;
     }

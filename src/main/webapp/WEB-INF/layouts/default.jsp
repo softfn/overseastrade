@@ -28,17 +28,25 @@
                     <div class="grid-header">Product Categories</div>
                     <div class="grid-container">
                         <ul>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a> <img src="${ctx}/static/images/new.gif"></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas dffe</a> <img src="${ctx}/static/images/new.gif"></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a> <img src="${ctx}/static/images/new.gif"></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
-                            <li><img src="${ctx}/static/images/news.gif"> <a href="${ctx}/products/class/ufewfwef23fwe">Shenzhen Overseas</a></li>
+                            <c:forEach items="${firstCategories}" var="fc">
+                                <li>
+                                    <img src="${ctx}/static/images/news.gif">
+                                    <a href="${ctx}/products/category/${fc.id}">
+                                        <c:choose>
+                                            <c:when test="${fc.isNew && fn:length(fc.name) > 24}">
+                                                <c:out value="${fn:substring(fc.name, 0, 24)}…" />
+                                                <img src="${ctx}/static/images/new.gif">
+                                            </c:when>
+                                            <c:when test="${!fc.isNew && fn:length(fc.name) > 28}">
+                                                <c:out value="${fn:substring(fc.name, 0, 28)}…" />
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:out value="${fc.name}" />
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </a>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </div>
                 </div>

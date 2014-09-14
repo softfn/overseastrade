@@ -30,6 +30,15 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="isNew" class="col-sm-2 control-label">isNew</label>
+            <div class="col-sm-8">
+                <select class="form-control" id="isNew" name="isNew">
+                    <option value="false" <c:if test="${!category.isNew}">selected</c:if>>False</option>
+                    <option value="true" <c:if test="${category.isNew}">selected</c:if>>True</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
             <label for="seq" class="col-sm-2 control-label">SEQ</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="seq" name="seq" value="${category.seq}" placeholder="1" required>

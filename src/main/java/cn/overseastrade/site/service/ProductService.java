@@ -72,5 +72,4 @@ public class ProductService {
         Specification<Product> spec = buildSpecification(new HashMap<String, Object>());
         return productDao.findAll(spec, pageRequest).getContent();
     }
-
 }
