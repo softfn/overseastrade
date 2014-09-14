@@ -34,18 +34,6 @@ public class BackendController {
         return "admin/aboutus";
     }
 
-    @RequestMapping(value = "products")
-    public String products(Model model) {
-        model.addAttribute("activeId", "products");
-        return "admin/products";
-    }
-
-    @RequestMapping(value = "download")
-    public String download(Model model) {
-        model.addAttribute("activeId", "download");
-        return "admin/download";
-    }
-
     @RequestMapping(value = "faq")
     public String faq(Model model) {
         Article article = articleService.getArticle(ArticleType.faq.name());

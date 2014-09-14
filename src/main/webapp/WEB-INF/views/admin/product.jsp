@@ -10,7 +10,7 @@
 </head>
 <body>
 <form class="form-inline" role="form" action="#">
-    <a href="${ctx}/admin/product/add" class="btn btn-sm btn-default">Add Product</a>
+    <a href="${ctx}/admin/product/add" class="btn btn-sm btn-default">Add</a>
     <div class="form-group">
         <div class="input-group input-group-sm">
             <div class="input-group-addon">Category:</div>
@@ -32,7 +32,7 @@
     <button type="submit" class="btn btn-sm btn-default" id="search_btn">Search</button>
     <tags:sort/>
 </form>
-<table id="contentTable" class="table table-striped table-bordered table-condensed">
+<table id="contentTable" class="table table-striped  table-condensed">
     <thead>
     <tr>
         <th width="30px">ID</th>

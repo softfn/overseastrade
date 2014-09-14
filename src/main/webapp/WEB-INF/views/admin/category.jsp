@@ -6,15 +6,15 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>Download</title>
+    <title>Category</title>
 </head>
 <body>
 <form class="form-inline" role="form" action="#">
-    <a href="${ctx}/admin/download/add" class="btn btn-sm btn-default">Add</a>
+    <a href="${ctx}/admin/category/add" class="btn btn-sm btn-default">Add</a>
     <div class="form-group">
         <div class="input-group input-group-sm">
-            <div class="input-group-addon">Title:</div>
-            <input class="form-control" type="text" name="search_LIKE_title" value="${param.search_LIKE_title}">
+            <div class="input-group-addon">Name:</div>
+            <input class="form-control" type="text" name="search_LIKE_name" value="${param.search_LIKE_name}">
         </div>
     </div>
     <button type="submit" class="btn btn-sm btn-default" id="search_btn">Search</button>
@@ -24,42 +24,44 @@
     <thead>
     <tr>
         <th width="30px">ID</th>
-        <th width="250px">Title</th>
-        <th>Content</th>
+        <th>Name</th>
+        <th width="200px">Parent Category</th>
+        <th width="60px">SEQ</th>
         <th width="150px">Create Time</th>
         <th width="100px">Manage</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${downloadPage.content}" var="download">
+    <c:forEach items="${categoryPage.content}" var="category">
         <tr>
-            <td>${download.id}</td>
+            <td>${category.id}</td>
             <td>
                 <c:choose>
-                    <c:when test="${fn:length(download.title) > 30}">
-                        <c:out value="${fn:substring(download.title, 0, 30)}…" />
+                    <c:when test="${fn:length(category.name) > 90}">
+                        <c:out value="${fn:substring(category.name, 0, 90)}…" />
                     </c:when>
                     <c:otherwise>
-                        <c:out value="${download.title}" />
+                        <c:out value="${category.name}" />
                     </c:otherwise>
                 </c:choose>
             </td>
             <td>
                 <c:choose>
-                    <c:when test="${fn:length(download.content) > 90}">
-                        <c:out value="${fn:substring(download.content, 0, 90)}…" />
+                    <c:when test="${fn:length(category.category.name) > 90}">
+                        <c:out value="${fn:substring(category.category.name, 0, 90)}…" />
                     </c:when>
                     <c:otherwise>
-                        <c:out value="${download.content}" />
+                        <c:out value="${category.category.name}" />
                     </c:otherwise>
                 </c:choose>
             </td>
-            <td><fmt:formatDate value="${download.time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-            <td><a href="${ctx}/admin/download/edit/${download.id}">Edit</a> | <a href="${ctx}/admin/download/delete/${download.id}">Delete</a></td>
+            <td>${category.seq}</td>
+            <td><fmt:formatDate value="${category.time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+            <td><a href="${ctx}/admin/category/edit/${category.id}">Edit</a> | <a href="${ctx}/admin/category/delete/${category.id}">Delete</a></td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
-<tags:pagination page="${downloadPage}" paginationSize="15"/>
+<tags:pagination page="${categoryPage}" paginationSize="15"/>
 </body>
 </html>

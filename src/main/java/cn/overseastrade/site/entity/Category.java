@@ -16,6 +16,7 @@ import java.util.Date;
 public class Category extends IdEntity {
     private String name;
     private Category category;
+    private Integer seq;
     private Date time;
 
     public String getName() {
@@ -36,6 +37,14 @@ public class Category extends IdEntity {
         this.category = category;
     }
 
+    public Integer getSeq() {
+        return seq;
+    }
+
+    public void setSeq(Integer seq) {
+        this.seq = seq;
+    }
+
     public Date getTime() {
         return time;
     }
@@ -49,6 +58,7 @@ public class Category extends IdEntity {
         return "Category{" +
                 "name='" + name + '\'' +
                 ", category=" + category +
+                ", seq=" + seq +
                 ", time=" + time +
                 '}';
     }

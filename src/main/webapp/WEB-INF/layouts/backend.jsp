@@ -38,6 +38,7 @@
             <ul class="nav navbar-nav">
                 <li id="home"><a href="${ctx}/admin/home">Home</a></li>
                 <li id="aboutus"><a href="${ctx}/admin/aboutus">About us</a></li>
+                <li id="category"><a href="${ctx}/admin/category">Category</a></li>
                 <li id="products"><a href="${ctx}/admin/product">Products</a></li>
                 <li id="news"><a href="${ctx}/admin/news">News</a></li>
                 <li id="download"><a href="${ctx}/admin/download">Download</a></li>

@@ -23,7 +23,7 @@
     <button type="submit" class="btn btn-sm btn-default" id="search_btn">Search</button>
     <tags:sort/>
 </form>
-<table id="contentTable" class="table table-striped table-bordered table-condensed">
+<table id="contentTable" class="table table-striped  table-condensed">
     <thead>
     <tr>
         <th width="30px">ID</th>

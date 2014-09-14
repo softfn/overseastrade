@@ -25,7 +25,8 @@ import java.util.Map;
 public class CategoryController {
     private static Map<String, String> sortTypes = Maps.newLinkedHashMap();
     static {
-        sortTypes.put("auto", "default");
+        sortTypes.put("auto", "seq");
+        sortTypes.put("id", "id");
         sortTypes.put("name", "name");
         sortTypes.put("time", "time");
     }
@@ -41,8 +42,8 @@ public class CategoryController {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
 
         Page<Category> categoryPage = categoryService.getCategory(searchParams, pageNumber, pageSize, sortType);
-
         model.addAttribute("categoryPage", categoryPage);
+        model.addAttribute("activeId", "category");
         model.addAttribute("sortType", sortType);
         model.addAttribute("sortTypes", sortTypes);
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
@@ -52,6 +53,9 @@ public class CategoryController {
 
     @RequestMapping(value = "/admin/category/save", method = RequestMethod.POST)
     public String save(@Valid Category category) {
+        if (category.getCategory().getId() == null) {
+            category.setCategory(null);
+        }
         category.setTime(new Date());
         categoryService.save(category);
         return "redirect:/admin/category";
@@ -59,6 +63,7 @@ public class CategoryController {
 
     @RequestMapping(value = "/admin/category/add")
     public String add(Model model) {
+        model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("category", new Category());
         return "admin/category_edit";
     }
@@ -67,6 +72,7 @@ public class CategoryController {
     public String edit(@PathVariable("id") Long id, Model model) {
         Category category = categoryService.getCategory(id);
         model.addAttribute("category", category);
+        model.addAttribute("categories", categoryService.getAllCategory());
         return "admin/category_edit";
     }
 

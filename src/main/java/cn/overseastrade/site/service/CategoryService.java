@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springside.modules.persistence.DynamicSpecifications;
 import org.springside.modules.persistence.SearchFilter;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,9 +41,11 @@ public class CategoryService {
     private PageRequest buildPageRequest(int pageNumber, int pagzSize, String sortType) {
         Sort sort = null;
         if ("auto".equals(sortType)) {
-            sort = new Sort(Sort.Direction.DESC, "id");
+            sort = new Sort(Sort.Direction.ASC, "seq");
         } else if ("name".equals(sortType)) {
             sort = new Sort(Sort.Direction.ASC, "name");
+        } else if ("id".equals(sortType)) {
+            sort = new Sort(Sort.Direction.DESC, "id");
         } else if ("time".equals(sortType)) {
             sort = new Sort(Sort.Direction.DESC, "time");
         }
@@ -56,6 +59,12 @@ public class CategoryService {
     }
 
     public void deleteCategory(Long id) {
+        List<Category> categories = categoryDao.findByCategoryId(id);
+        if (categories != null && categories.size() > 0) {
+            for (Category category : categories) {
+                deleteCategory(category.getId());
+            }
+        }
         categoryDao.delete(id);
     }
 
