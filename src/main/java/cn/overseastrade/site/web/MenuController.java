@@ -141,12 +141,12 @@ public class MenuController {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
-        Category category = categoryService.getCategory(categoryId);
         if (categoryId == 1) {
-            model.addAttribute("title", "Products / " + category.getName());
-        } else {
-            searchParams.put("search_EQ_category", category);
             model.addAttribute("title", "Products");
+        } else {
+            Category category = categoryService.getCategory(categoryId);
+            searchParams.put("EQ_category.id", categoryId.toString());
+            model.addAttribute("title", "Products / " + category.getName());
         }
 
         Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");

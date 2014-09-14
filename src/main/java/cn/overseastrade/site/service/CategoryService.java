@@ -80,4 +80,8 @@ public class CategoryService {
         return categoryDao.findByCategoryId(null, new Sort(Sort.Direction.ASC, "seq"));
     }
 
+    public List<Category> findByParentId(Long parentId) {
+        return categoryDao.findByCategoryId(parentId, new Sort(Sort.Direction.DESC, "code"));
+    }
+
 }

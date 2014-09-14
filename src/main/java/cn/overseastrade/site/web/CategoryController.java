@@ -1,7 +1,9 @@
 package cn.overseastrade.site.web;
 
 import cn.overseastrade.site.entity.Category;
+import cn.overseastrade.site.entity.Product;
 import cn.overseastrade.site.service.CategoryService;
+import cn.overseastrade.site.service.ProductService;
 import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,6 +18,7 @@ import org.springside.modules.web.Servlets;
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,6 +36,9 @@ public class CategoryController {
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private ProductService productService;
 
     @RequestMapping(value = "/admin/category", method = RequestMethod.GET)
     public String list(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
@@ -55,6 +61,25 @@ public class CategoryController {
     public String save(@Valid Category category) {
         if (category.getCategory().getId() == null) {
             category.setCategory(null);
+        }
+        if (category.getId() == null) {
+            Long parentId = null;
+            if (category.getCategory() != null) {
+                parentId = category.getCategory().getId();
+            }
+            List<Category> categories = categoryService.findByParentId(parentId);
+            if (categories != null && categories.size() > 0) {
+                String code = categories.get(0).getCode();
+                int codeNum = Integer.parseInt(code) + 1;
+                category.setCode(String.format("%0" + code.length() + "d", codeNum));
+            } else {
+                if (parentId != null) {
+                    Category category1 = categoryService.getCategory(parentId);
+                    category.setCode(category1.getCode() + "001");
+                } else {
+                    category.setCode("001");
+                }
+            }
         }
         category.setTime(new Date());
         categoryService.save(category);
@@ -80,6 +105,10 @@ public class CategoryController {
 
     @RequestMapping(value = "/admin/category/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
+        List<Product> products = productService.findProductByCategory(id);
+        if (products.size() > 0) {
+            throw new RuntimeException("can delete");
+        }
         categoryService.deleteCategory(id);
         return "redirect:/admin/category";
     }

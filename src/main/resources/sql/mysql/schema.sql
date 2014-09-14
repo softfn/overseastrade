@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50140
+Source Server Version : 50617
 Source Host           : localhost:3306
 Source Database       : overseastrade
 
 Target Server Type    : MYSQL
-Target Server Version : 50140
+Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2014-09-13 15:03:46
+Date: 2014-09-15 02:41:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,16 +42,25 @@ DROP TABLE IF EXISTS `ot_category`;
 CREATE TABLE `ot_category` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) DEFAULT NULL,
+  `code` varchar(200) DEFAULT NULL,
   `parent_id` bigint(20) DEFAULT NULL,
+  `seq` int(3) DEFAULT '1',
+  `is_new` tinyint(1) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ot_category
 -- ----------------------------
-INSERT INTO `ot_category` VALUES ('1', 'fwe', null, '2014-09-13 00:00:09');
-INSERT INTO `ot_category` VALUES ('2', 'fff', '1', '2014-09-13 00:00:19');
+INSERT INTO `ot_category` VALUES ('6', '3909', null, '8', '1', '0', '2014-09-14 23:31:48');
+INSERT INTO `ot_category` VALUES ('8', 'sggreg', null, '6', '22', '0', '2014-09-14 16:24:17');
+INSERT INTO `ot_category` VALUES ('10', 'f', null, '8', '34', '0', '2014-09-14 16:29:15');
+INSERT INTO `ot_category` VALUES ('15', 'wef', null, null, '1', '1', '2014-09-14 23:32:08');
+INSERT INTO `ot_category` VALUES ('16', 'Shenzhen Overseas Trade Limited Company is a professional ', null, null, '2', '1', '2014-09-15 00:11:57');
+INSERT INTO `ot_category` VALUES ('17', 'Shenzhen Overseas Trade Limited Company is a professional ', null, null, '3', '1', '2014-09-15 00:12:06');
+INSERT INTO `ot_category` VALUES ('18', 'Shenzhen Overseas Trade Limited Company is a professional ', null, null, '2', '0', '2014-09-15 00:12:14');
+INSERT INTO `ot_category` VALUES ('19', 'Shenzhen Overseas Trade Limited Company is a professional ', null, null, '3', '0', '2014-09-15 00:12:22');
 
 -- ----------------------------
 -- Table structure for ot_download
@@ -63,11 +72,13 @@ CREATE TABLE `ot_download` (
   `content` longtext,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ot_download
 -- ----------------------------
+INSERT INTO `ot_download` VALUES ('1', 'fe', 'wef', '2014-09-14 15:36:56');
+INSERT INTO `ot_download` VALUES ('2', 'f', 'fffff', '2014-09-14 15:37:23');
 
 -- ----------------------------
 -- Table structure for ot_feedback
@@ -161,15 +172,17 @@ CREATE TABLE `ot_picture` (
   `product_id` bigint(20) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL,
   `path` varchar(200) DEFAULT NULL,
-  `seq` int(3) DEFAULT NULL,
+  `seq` int(255) DEFAULT '1',
   `block_size` int(1) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ot_picture
 -- ----------------------------
+INSERT INTO `ot_picture` VALUES ('1', '2', 'a_pic01', '/attached/image/20140914/20140914223116_894.png', '1', '1', '2014-09-14 23:51:08');
+INSERT INTO `ot_picture` VALUES ('2', '2', 'a_pic02', '/attached/image/20140914/20140914223145_41.png', '1', '2', '2014-09-14 23:51:17');
 
 -- ----------------------------
 -- Table structure for ot_product
@@ -184,11 +197,14 @@ CREATE TABLE `ot_product` (
   `description` longtext,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ot_product
 -- ----------------------------
+INSERT INTO `ot_product` VALUES ('2', '6', 'a', 'fwe', 'wef', 'wfe', '2014-09-14 23:09:14');
+INSERT INTO `ot_product` VALUES ('3', '8', 'a1', 'wef', 'wef', 'wf<img alt=\"\" src=\"/attached/image/20140914/20140914223116_894.png\" />', '2014-09-14 23:11:59');
+INSERT INTO `ot_product` VALUES ('4', '8', 'a2', 'erg', 'ergerg', 'egerg', '2014-09-14 23:09:30');
 
 -- ----------------------------
 -- Table structure for ot_refer_product
@@ -199,11 +215,13 @@ CREATE TABLE `ot_refer_product` (
   `product_id` bigint(20) DEFAULT NULL,
   `refer_product_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ot_refer_product
 -- ----------------------------
+INSERT INTO `ot_refer_product` VALUES ('1', '2', '3');
+INSERT INTO `ot_refer_product` VALUES ('2', '2', '4');
 
 -- ----------------------------
 -- Table structure for ot_task

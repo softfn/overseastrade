@@ -15,6 +15,7 @@ import java.util.Date;
 @Table(name = "ot_category")
 public class Category extends IdEntity {
     private String name;
+    private String code;
     private Category category;
     private Integer seq;
     private Boolean isNew;
@@ -46,6 +47,14 @@ public class Category extends IdEntity {
         this.seq = seq;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public Date getTime() {
         return time;
     }
@@ -66,6 +75,7 @@ public class Category extends IdEntity {
     public String toString() {
         return "Category{" +
                 "name='" + name + '\'' +
+                ", code='" + code + '\'' +
                 ", category=" + category.getId() +
                 ", seq=" + seq +
                 ", isNew=" + isNew +

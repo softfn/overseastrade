@@ -72,4 +72,8 @@ public class ProductService {
         Specification<Product> spec = buildSpecification(new HashMap<String, Object>());
         return productDao.findAll(spec, pageRequest).getContent();
     }
+
+    public List<Product> findProductByCategory(Long categoryId) {
+        return productDao.findByCategoryId(categoryId);
+    }
 }

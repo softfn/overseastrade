@@ -10,4 +10,5 @@ import java.util.List;
  * Created by softfn on 9/1/2014.
  */
 public interface ProductDao extends PagingAndSortingRepository<Product, Long>, JpaSpecificationExecutor<Product> {
+    List<Product> findByCategoryId(Long id);
 }
