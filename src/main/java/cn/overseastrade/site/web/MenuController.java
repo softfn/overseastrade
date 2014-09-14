@@ -145,7 +145,7 @@ public class MenuController {
             model.addAttribute("title", "Products");
         } else {
             Category category = categoryService.getCategory(categoryId);
-            searchParams.put("EQ_category.id", categoryId.toString());
+            searchParams.put("LIKE_category.code", category.getCode() + "%");
             model.addAttribute("title", "Products / " + category.getName());
         }
 
