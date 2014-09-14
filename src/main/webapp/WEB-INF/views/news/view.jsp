@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="title">${viewNews.title}</div>
-<div style="float: right; height: 16px; padding-right: 20px; margin-top: -10px; clear: both">
+<div style="float: right; height: 18px; padding-right: 20px; margin-top: -10px; clear: both; color: #adadad">
     Date:<fmt:formatDate value="${viewNews.time}" pattern="dd/MM/yyyy"/>
 </div>
 <div style="line-height: 20px; padding: 0 6px 16px 6px; clear: both">

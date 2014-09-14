@@ -79,6 +79,7 @@ public class FeedbackController {
     public String view(@PathVariable("id") Long id, Model model) {
         Feedback feedback = feedbackService.getFeedback(id);
         model.addAttribute("feedback", feedback);
+        model.addAttribute("activeId", "feedback");
         return "/admin/feedback_view";
     }
 }

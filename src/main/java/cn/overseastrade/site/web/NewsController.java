@@ -60,12 +60,14 @@ public class NewsController {
 
     @RequestMapping(value = "/admin/news/add")
     public String add(Model model) {
+        model.addAttribute("activeId", "news");
         model.addAttribute("news", new News());
         return "admin/news_edit";
     }
 
     @RequestMapping(value = "/admin/news/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("activeId", "news");
         News news = newsService.getNews(id);
         model.addAttribute("news", news);
         return "admin/news_edit";

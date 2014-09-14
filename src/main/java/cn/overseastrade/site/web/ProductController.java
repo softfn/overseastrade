@@ -44,9 +44,7 @@ public class ProductController {
                        @RequestParam(value = "sortType", defaultValue = "auto") String sortType, Model model,
                        ServletRequest request) {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
-
         Page<Product> productPage = productService.getProduct(searchParams, pageNumber, pageSize, sortType);
-
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("productPage", productPage);
         model.addAttribute("activeId", "products");
@@ -66,14 +64,18 @@ public class ProductController {
 
     @RequestMapping(value = "/admin/product/add")
     public String add(Model model) {
+        model.addAttribute("activeId", "products");
         model.addAttribute("product", new Product());
+        model.addAttribute("categories", categoryService.getAllCategory());
         return "admin/product_edit";
     }
 
     @RequestMapping(value = "/admin/product/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
         Product product = productService.getProduct(id);
+        model.addAttribute("activeId", "products");
         model.addAttribute("product", product);
+        model.addAttribute("categories", categoryService.getAllCategory());
         return "admin/product_edit";
     }
 

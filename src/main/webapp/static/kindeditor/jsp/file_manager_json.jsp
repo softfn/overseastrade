@@ -50,8 +50,9 @@ if (!"".equals(path) && !path.endsWith("/")) {
 //目录不存在或不是目录
 File currentPathFile = new File(currentPath);
 if(!currentPathFile.isDirectory()){
-	out.println("Directory does not exist.");
-	return;
+    currentPathFile.mkdir();
+//	out.println("Directory does not exist.");
+//	return;
 }
 
 //遍历目录取的文件信息

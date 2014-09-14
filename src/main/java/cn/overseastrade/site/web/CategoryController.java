@@ -63,6 +63,7 @@ public class CategoryController {
 
     @RequestMapping(value = "/admin/category/add")
     public String add(Model model) {
+        model.addAttribute("activeId", "category");
         model.addAttribute("categories", categoryService.getAllCategory());
         model.addAttribute("category", new Category());
         return "admin/category_edit";
@@ -73,6 +74,7 @@ public class CategoryController {
         Category category = categoryService.getCategory(id);
         model.addAttribute("category", category);
         model.addAttribute("categories", categoryService.getAllCategory());
+        model.addAttribute("activeId", "category");
         return "admin/category_edit";
     }
 

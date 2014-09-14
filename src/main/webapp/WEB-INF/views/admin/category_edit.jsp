@@ -21,8 +21,10 @@
             <div class="col-sm-8">
                 <select class="form-control" id="category.id" name="category.id">
                     <option value="">none</option>
-                    <c:forEach items="${categories}" var="category">
-                        <option value="${category.id}"> ${category.name}</option>
+                    <c:forEach items="${categories}" var="cg">
+                        <option value="${cg.id}" <c:if test="${cg.id == category.category.id}">selected</c:if>>
+                            ${cg.name}
+                        </option>
                     </c:forEach>
                 </select>
             </div>

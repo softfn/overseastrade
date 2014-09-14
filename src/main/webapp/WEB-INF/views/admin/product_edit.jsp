@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>${product.name} Edit</title>
@@ -12,20 +13,43 @@
     <form class="form-horizontal" role="form" action="${ctx}/admin/product/save" method="post">
         <input id="id" name="id" type="hidden" value="${product.id}">
         <div class="form-group">
-            <label for="name" class="col-sm-2 control-label">Title</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="name" name="name" value="${product.name}" placeholder="name" required autofocus>
+            <label for="name" class="col-sm-1 control-label">Name</label>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" id="name" name="name" value="${product.name}" placeholder="Product Name" required autofocus>
+            </div>
+            <label for="category.id" class="col-sm-1 control-label">Category</label>
+            <div class="col-sm-5">
+                <select class="form-control" id="category.id" name="category.id" required>
+                    <option value=""></option>
+                    <c:forEach items="${categories}" var="category">
+                        <option value="${category.id}" <c:if test="${category.id == product.category.id}">selected</c:if>>
+                            ${category.name}
+                        </option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="description" class="col-sm-2 control-label">Content</label>
-            <div class="col-sm-8">
-                <textarea class="form-control" id="description" name="description" required>${product.description}</textarea>
+            <label for="keywords" class="col-sm-1 control-label">Keywords</label>
+            <div class="col-sm-11">
+                <input type="text" class="form-control" id="keywords" name="keywords" value="${product.keywords}" placeholder="Product Keywords" required>
             </div>
         </div>
         <div class="form-group">
-            <label for="submit" class="col-sm-2 control-label"></label>
-            <div class="col-sm-8">
+            <label for="brief" class="col-sm-1 control-label">Brief</label>
+            <div class="col-sm-11">
+                <textarea class="form-control" id="brief" name="brief" rows="4" placeholder="Product Brief" required>${product.brief}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description" class="col-sm-1 control-label">Description</label>
+            <div class="col-sm-11">
+                <textarea class="form-control" id="description" name="description"  rows="40" required>${product.description}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="submit" class="col-sm-1 control-label"></label>
+            <div class="col-sm-11">
                 <input type="submit" id="submit" value="Submit" class="btn btn-default btn-sm">
                 <input type="button" id="back" value="Back" class="btn btn-default btn-sm pull-right" onclick="javascript:history.go(-1)">
             </div>
@@ -36,7 +60,6 @@
     var editor;
     $(document).ready(function () {
         $(".form-horizontal").validate();
-        $("#description").css("height", $(document).height() - 200);
         KindEditor.ready(function (K) {
             editor = K.create('textarea[name="description"]', {
                 allowFileManager: true

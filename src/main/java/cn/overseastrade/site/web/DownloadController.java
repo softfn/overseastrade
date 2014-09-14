@@ -60,12 +60,14 @@ public class DownloadController {
 
     @RequestMapping(value = "/admin/download/add")
     public String add(Model model) {
+        model.addAttribute("activeId", "download");
         model.addAttribute("download", new Download());
         return "admin/download_edit";
     }
 
     @RequestMapping(value = "/admin/download/edit/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("activeId", "download");
         Download download = downloadService.getDownload(id);
         model.addAttribute("download", download);
         return "admin/download_edit";
