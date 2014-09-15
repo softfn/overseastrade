@@ -15,7 +15,8 @@
     ${viewNews.content}
 </div>
 <div style="float: right; height: 30px; padding-right: 14px; clear: both">
-    <a href="#" onclick="cl()">Close</a>
+    <a href="#" onclick="cl()">Close</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#" onclick="javascript:history.go(-1)">Back</a>
 </div>
 <script type="text/javascript">
     function cl() {

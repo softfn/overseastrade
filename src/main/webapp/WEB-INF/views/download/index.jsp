@@ -43,7 +43,7 @@
 <c:forEach items="${downloadPage.content}" var="pp">
     <div class="entry">
         <span class="etlf">
-            <a href="${ctx}/download/view/${pp.id}" target="_blank">
+            <a href="${ctx}/download/view/${pp.id}" target="_self">
                 <c:choose>
                     <c:when test="${fn:length(pp.title) > 90}">
                         <c:out value="${fn:substring(pp.title, 0, 90)}…" />

@@ -162,7 +162,7 @@
 
     function blocksItInit() {
         $('#scroll').BlocksIt({
-            numOfCol: 5,
+            numOfCol: 4,
             offsetX: 4,
             offsetY: 4
         });
