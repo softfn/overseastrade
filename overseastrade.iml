@@ -17,12 +17,14 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
+        <fileset id="fileset" name="Spring Application Context" removed="false" profiles="production">
           <file>file://$MODULE_DIR$/src/main/resources/email/applicationContext-email.xml</file>
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring-mvc.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/applicationContext-shiro.xml</file>
         </fileset>
+        <fileset id="web application context" profiles="production" autodetected="true" />
+        <fileset id="web springServlet servlet context" profiles="production" autodetected="true" />
       </configuration>
     </facet>
   </component>

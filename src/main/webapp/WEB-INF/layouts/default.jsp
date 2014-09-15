@@ -31,7 +31,7 @@
                             <c:forEach items="${firstCategories}" var="fc">
                                 <li>
                                     <img src="${ctx}/static/images/news.gif">
-                                    <a href="${ctx}/products?categoryId=${fc.id}">
+                                    <a href="${ctx}/products/category/${fc.id}">
                                         <c:choose>
                                             <c:when test="${fc.isNew && fn:length(fc.name) > 24}">
                                                 <c:out value="${fn:substring(fc.name, 0, 24)}…" />

@@ -23,6 +23,6 @@
 </div>
 <script type="text/javascript">
     $("#submit").click(function () {
-        window.location.href = "${ctx}/products?search_LIKE_name=" + $("#search").val();
+        window.location.href = "${ctx}/products/search/" + $("#search").val();
     });
 </script>

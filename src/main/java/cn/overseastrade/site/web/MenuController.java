@@ -60,21 +60,6 @@ public class MenuController {
         return "aboutus/index";
     }
 
-    @RequestMapping(value = "/products/scroll/page/{pageNumber}", method = RequestMethod.GET)
-    @ResponseBody
-    public String products(@PathVariable("pageNumber") int pageNumber, Model model) {
-        StringBuffer sb = new StringBuffer();
-        sb.append("<div class=\"grid\">");
-        sb.append(" <div class=\"imgholder\">");
-        sb.append("     <img src=\"http://www.inwebson.com/demo/blocksit-js/demo2/images/img2.jpg\" />");
-        sb.append(" </div>");
-        sb.append("<strong>Battle Field</strong>");
-        sb.append("<p>Battle Field for you...</p>");
-        sb.append("<div class=\"meta\">by Andrea Andrade</div>");
-        sb.append("</div>");
-        return sb.toString();
-    }
-
     @RequestMapping(value = "/news")
     public String news(Model model) {
         return news(1, model);
@@ -134,24 +119,61 @@ public class MenuController {
         return "contactus/index";
     }
 
-    @RequestMapping(value = "/products")
-    public String products(@RequestParam(value = "categoryId", defaultValue = "1") Long categoryId,
-                           @RequestParam(value = "page", defaultValue = "1") int pageNumber, Model model,
-                           ServletRequest request) {
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    public String products() {
+        return "products/scroll";
+    }
+
+    @RequestMapping(value = "/products/view/{id}", method = RequestMethod.GET)
+    public String products(@PathVariable("id") Long id, Model model) {
+        Product product = productService.getProduct(id);
+        model.addAttribute("product", product);
+        return "products/view";
+    }
+
+    @RequestMapping(value = "/products/category/{id}", method = RequestMethod.GET)
+    public String products(@PathVariable("id") Long id, @RequestParam(value = "page", defaultValue = "1") int pageNumber,
+                           Model model, ServletRequest request) {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
-        if (categoryId == 1) {
-            model.addAttribute("title", "Products");
-        } else {
-            Category category = categoryService.getCategory(categoryId);
-            searchParams.put("LIKE_category.code", category.getCode() + "%");
-            model.addAttribute("title", "Products / " + category.getName());
-        }
+        Category category = categoryService.getCategory(id);
+        searchParams.put("RK_category.code", category.getCode() + "%");
+        model.addAttribute("title", "Products / " + category.getName());
 
         Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
         model.addAttribute("productPage", productPage);
 
-        return "products/index";
+        return "products/category";
+    }
+
+    @RequestMapping(value = "/products/search/{keywords}", method = RequestMethod.GET)
+    public String products(@PathVariable("keywords") String keywords, @RequestParam(value = "page", defaultValue = "1") int pageNumber,
+                           Model model, ServletRequest request) {
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+        model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+
+        searchParams.put("LIKE_name", keywords);
+        model.addAttribute("title", "Products");
+
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
+        model.addAttribute("productPage", productPage);
+
+        return "products/category";
+    }
+
+    @RequestMapping(value = "/products/scroll/page/{pageNumber}", method = RequestMethod.GET)
+    @ResponseBody
+    public String products(@PathVariable("pageNumber") int pageNumber, Model model) {
+        StringBuffer sb = new StringBuffer();
+        sb.append("<div class=\"grid\">");
+        sb.append(" <div class=\"imgholder\">");
+        sb.append("     <img src=\"http://www.inwebson.com/demo/blocksit-js/demo2/images/img2.jpg\" />");
+        sb.append(" </div>");
+        sb.append("<strong>Battle Field</strong>");
+        sb.append("<p>Battle Field for you...</p>");
+        sb.append("<div class=\"meta\">by Andrea Andrade</div>");
+        sb.append("</div>");
+        return sb.toString();
     }
 }
