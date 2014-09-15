@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2014-09-15 02:41:40
+Date: 2014-09-16 00:59:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -48,19 +48,17 @@ CREATE TABLE `ot_category` (
   `is_new` tinyint(1) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ot_category
 -- ----------------------------
-INSERT INTO `ot_category` VALUES ('6', '3909', null, '8', '1', '0', '2014-09-14 23:31:48');
-INSERT INTO `ot_category` VALUES ('8', 'sggreg', null, '6', '22', '0', '2014-09-14 16:24:17');
-INSERT INTO `ot_category` VALUES ('10', 'f', null, '8', '34', '0', '2014-09-14 16:29:15');
-INSERT INTO `ot_category` VALUES ('15', 'wef', null, null, '1', '1', '2014-09-14 23:32:08');
-INSERT INTO `ot_category` VALUES ('16', 'Shenzhen Overseas Trade Limited Company is a professional ', null, null, '2', '1', '2014-09-15 00:11:57');
-INSERT INTO `ot_category` VALUES ('17', 'Shenzhen Overseas Trade Limited Company is a professional ', null, null, '3', '1', '2014-09-15 00:12:06');
-INSERT INTO `ot_category` VALUES ('18', 'Shenzhen Overseas Trade Limited Company is a professional ', null, null, '2', '0', '2014-09-15 00:12:14');
-INSERT INTO `ot_category` VALUES ('19', 'Shenzhen Overseas Trade Limited Company is a professional ', null, null, '3', '0', '2014-09-15 00:12:22');
+INSERT INTO `ot_category` VALUES ('29', 'a', '001', null, '1', '0', '2014-09-15 02:59:13');
+INSERT INTO `ot_category` VALUES ('30', 'a1', '001001', '29', '1', '0', '2014-09-15 02:59:22');
+INSERT INTO `ot_category` VALUES ('31', 'a11', '001001001', '30', '2', '0', '2014-09-15 02:59:31');
+INSERT INTO `ot_category` VALUES ('32', 'b', '002', null, '2', '0', '2014-09-15 02:59:38');
+INSERT INTO `ot_category` VALUES ('33', 'a12', '001001002', '30', '2', '0', '2014-09-15 02:59:57');
+INSERT INTO `ot_category` VALUES ('34', 'b1', '002001', '32', '2', '0', '2014-09-15 03:02:02');
 
 -- ----------------------------
 -- Table structure for ot_download
@@ -181,8 +179,6 @@ CREATE TABLE `ot_picture` (
 -- ----------------------------
 -- Records of ot_picture
 -- ----------------------------
-INSERT INTO `ot_picture` VALUES ('1', '2', 'a_pic01', '/attached/image/20140914/20140914223116_894.png', '1', '1', '2014-09-14 23:51:08');
-INSERT INTO `ot_picture` VALUES ('2', '2', 'a_pic02', '/attached/image/20140914/20140914223145_41.png', '1', '2', '2014-09-14 23:51:17');
 
 -- ----------------------------
 -- Table structure for ot_product
@@ -197,14 +193,16 @@ CREATE TABLE `ot_product` (
   `description` longtext,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ot_product
 -- ----------------------------
-INSERT INTO `ot_product` VALUES ('2', '6', 'a', 'fwe', 'wef', 'wfe', '2014-09-14 23:09:14');
-INSERT INTO `ot_product` VALUES ('3', '8', 'a1', 'wef', 'wef', 'wf<img alt=\"\" src=\"/attached/image/20140914/20140914223116_894.png\" />', '2014-09-14 23:11:59');
-INSERT INTO `ot_product` VALUES ('4', '8', 'a2', 'erg', 'ergerg', 'egerg', '2014-09-14 23:09:30');
+INSERT INTO `ot_product` VALUES ('5', '30', 'p_a1', 'asdf', 'asdf', 'wef', '2014-09-15 03:02:22');
+INSERT INTO `ot_product` VALUES ('6', '33', 'p-a12', 'fsa', 'ewf', 'wef', '2014-09-15 03:02:42');
+INSERT INTO `ot_product` VALUES ('7', '34', 'p-b1', 'ew', 'wef', 'wef', '2014-09-15 03:02:55');
+INSERT INTO `ot_product` VALUES ('8', '29', 'ISpsum dolor sit amets', 'ISpsum dolor sit amets', 'Our products have some advantages such as durability and reliability. You know nowadays we sell not just hi-tech products; we sell a part of a style, culture. It is a real mainstream because this good is very widespread, indispensable and it has a high sales rate. We always stay in touch with the latest fashion tendencies and hi-tech achievements. That is why you can buy stylish and very functional products in our store. We try to provide only positive and effective solutions.', '<p style=\"text-indent:2em;\">\r\n	<span style=\"color:#242424;background-color:#FFFFFF;\">The main reason of our success is that our commodities are the unique combination of original design and numerous useful options. We can satisfy most whimsical clients because we have a largest choice among the competitive stores. Our phones are totally safe for your health because they have passed all tests without any failure. So don’t waste your time and purchase our products because our company cares about their clients. We often provide different promos and you can save some money in our store.</span><br />\r\n<br />\r\n<span style=\"color:#242424;background-color:#FFFFFF;\">Our products have some advantages such as durability and reliability. You know nowadays we sell not just hi-tech products; we sell a part of a style, culture. It is a real mainstream because this good is very widespread, indispensable and it has a high sales rate. We always stay in touch with the latest fashion tendencies and hi-tech achievements. That is why you can buy stylish and very functional products in our store. We try to provide only positive and effective solutions.</span><br />\r\n<br />\r\n<span style=\"color:#242424;background-color:#FFFFFF;\">We are proud to offer you our hi-tech original goods. The products of our store are the real bestsellers and we have a great number of faithful customers. Their testimonials prove that the reputation of our company is simply perfect. We observe the policy of providing only branded commodities. This fact confirms that we sell only high quality goods at a fair price.</span>\r\n</p>', '2014-09-16 00:20:08');
+INSERT INTO `ot_product` VALUES ('9', '30', 'Acicte magna ipsum dolor', 'Acicte magna ipsum dolor', 'The main reason of our success is that our commodities are the unique combination of original design and numerous useful options. We can satisfy most whimsical clients because we have a largest choice among the competitive stores. Our phones are totally safe for your health because they have passed all tests without any failure. So don’t waste your time and purchase our products because our company cares about their clients. We often provide different promos and you can save some money in our store.', '<span style=\"color:#242424;background-color:#FFFFFF;\">The main reason of our success is that our commodities are the unique combination of original design and numerous useful options. We can satisfy most whimsical clients because we have a largest choice among the competitive stores. Our phones are totally safe for your health because they have passed all tests without any failure. So don’t waste your time and purchase our products because our company cares about their clients. We often provide different promos and you can save some money in our store.</span><br />\r\n<br />\r\n<span style=\"color:#242424;background-color:#FFFFFF;\">Our products have some advantages such as durability and reliability. You know nowadays we sell not just hi-tech products; we sell a part of a style, culture. It is a real mainstream because this good is very widespread, indispensable and it has a high sales rate. We always stay in touch with the latest fashion tendencies and hi-tech achievements. That is why you can buy stylish and very functional products in our store. We try to provide only positive and effective solutions.</span><br />\r\n<br />\r\n<span style=\"color:#242424;background-color:#FFFFFF;\">We are proud to offer you our hi-tech original goods. The products of our store are the real bestsellers and we have a great number of faithful customers. Their testimonials prove that the reputation of our company is simply perfect. We observe the policy of providing only branded commodities. This fact confirms that we sell only high quality goods at a fair price.</span>', '2014-09-16 00:20:56');
 
 -- ----------------------------
 -- Table structure for ot_refer_product
@@ -220,8 +218,6 @@ CREATE TABLE `ot_refer_product` (
 -- ----------------------------
 -- Records of ot_refer_product
 -- ----------------------------
-INSERT INTO `ot_refer_product` VALUES ('1', '2', '3');
-INSERT INTO `ot_refer_product` VALUES ('2', '2', '4');
 
 -- ----------------------------
 -- Table structure for ot_task
