@@ -13,7 +13,7 @@
             margin: 0 20px 0 6px;
             height: 30px;
             line-height: 30px;
-            border-bottom: 1px dashed #dedede;
+            border-bottom: 1px solid #dedede;
         }
 
         .etlf {
@@ -36,10 +36,47 @@
         .etrt {
             float: right;
         }
+        .badge {
+            display: inline-block;
+            min-width: 10px;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            background-color: rgba(58, 157, 205, 0.64);
+            border-radius: 8px;
+            margin-bottom: 6px;
+        }
+        .selected {
+            background-color: #3fa3d7 !important;
+        }
+        .badge a {
+            color: #fff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-<div class="title">${title}</div>
+<div class="title">Products
+    <img src="${ctx}/static/images/v21.png">
+    <img src="${ctx}/static/images/v11.png">
+</div>
+<div style="margin-top: -12px">
+    <c:forEach items="${subCategory}" var="sc">
+        <c:choose>
+            <c:when test="${sc.id == categoryId}">
+                <span class="badge selected"><a href="${ctx}/products/category/${sc.id}">${sc.name}</a></span>
+            </c:when>
+            <c:otherwise>
+                <span class="badge"><a href="${ctx}/products/category/${sc.id}">${sc.name}</a></span>
+            </c:otherwise>
+        </c:choose>
+    </c:forEach>
+</div>
 <c:forEach items="${productPage.content}" var="pp">
     <div class="entry">
         <span class="etlf">

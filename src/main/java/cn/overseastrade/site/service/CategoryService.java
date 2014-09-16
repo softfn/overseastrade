@@ -48,6 +48,8 @@ public class CategoryService {
             sort = new Sort(Sort.Direction.DESC, "id");
         } else if ("time".equals(sortType)) {
             sort = new Sort(Sort.Direction.DESC, "time");
+        } else if ("code".equals(sortType)) {
+            sort = new Sort(Sort.Direction.ASC, "code");
         }
         return new PageRequest(pageNumber - 1, pagzSize, sort);
     }

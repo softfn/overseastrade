@@ -10,6 +10,7 @@
 <div class="container">
     <form class="form-horizontal" role="form" action="${ctx}/admin/category/save" method="post">
         <input id="id" name="id" type="hidden" value="${category.id}">
+        <input id="id" name="code" type="hidden" value="${category.code}">
         <div class="form-group">
             <label for="name" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-8">

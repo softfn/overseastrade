@@ -43,10 +43,4 @@ public class News extends IdEntity {
         this.time = time;
     }
 
-    @Override
-    public String toString() {
-        return "News{" +
-                "title='" + title + '\'' +
-                '}';
-    }
 }

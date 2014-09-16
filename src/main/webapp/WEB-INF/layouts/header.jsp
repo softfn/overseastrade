@@ -22,7 +22,13 @@
     <div class="item"><a href="${ctx}/contactus">Contact us</a></div>
 </div>
 <script type="text/javascript">
-    $("#submit").click(function () {
-        window.location.href = "${ctx}/products/search/" + $("#search").val();
-    });
+    var keywords = "${keywords}";
+    $(document).ready(function () {
+        if(keywords) {
+            $("#search").val(keywords);
+        }
+        $("#submit").click(function () {
+            window.location.href = "${ctx}/products/search/" + $("#search").val();
+        });
+    })
 </script>

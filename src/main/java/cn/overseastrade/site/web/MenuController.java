@@ -134,13 +134,16 @@ public class MenuController {
     @RequestMapping(value = "/products/category/{id}", method = RequestMethod.GET)
     public String products(@PathVariable("id") Long id, @RequestParam(value = "page", defaultValue = "1") int pageNumber,
                            Model model, ServletRequest request) {
-        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
-        model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+        model.addAttribute("categoryId", id);
 
         Category category = categoryService.getCategory(id);
-        searchParams.put("RK_category.code", category.getCode() + "%");
-        model.addAttribute("title", "Products / " + category.getName());
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("RK_code", category.getCode().substring(0,3));
 
+        model.addAttribute("subCategory", categoryService.getCategory(param, 1, 100, "code").getContent());
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+        model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+        searchParams.put("RK_category.code", category.getCode());
         Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
         model.addAttribute("productPage", productPage);
 
@@ -155,6 +158,7 @@ public class MenuController {
 
         searchParams.put("LIKE_name", keywords);
         model.addAttribute("title", "Products");
+        model.addAttribute("keywords", "keywords");
 
         Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
         model.addAttribute("productPage", productPage);
