@@ -133,7 +133,7 @@ public class MenuController {
 
     @RequestMapping(value = "/products/category/{id}", method = RequestMethod.GET)
     public String products(@PathVariable("id") Long id, @RequestParam(value = "page", defaultValue = "1") int pageNumber,
-                           Model model, ServletRequest request) {
+             @RequestParam(value = "toggle", defaultValue = "1") int toggle, Model model, ServletRequest request) {
         model.addAttribute("categoryId", id);
 
         Category category = categoryService.getCategory(id);
@@ -146,6 +146,12 @@ public class MenuController {
         searchParams.put("RK_category.code", category.getCode());
         Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
         model.addAttribute("productPage", productPage);
+        model.addAttribute("toggle", toggle);
+        if (toggle == 1) {
+            model.addAttribute("toggle1", 1);
+        } else {
+            model.addAttribute("toggle1", 2);
+        }
 
         return "products/category";
     }

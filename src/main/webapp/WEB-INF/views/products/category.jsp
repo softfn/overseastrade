@@ -62,8 +62,8 @@
 </head>
 <body>
 <div class="title">Products
-    <img src="${ctx}/static/images/v21.png">
-    <img src="${ctx}/static/images/v11.png">
+    <img src="${ctx}/static/images/v2${toggle}.png" onclick="toggle(${toggle1});">
+    <img src="${ctx}/static/images/v1${toggle}.png" onclick="toggle(${toggle1});">
 </div>
 <div style="margin-top: -12px">
     <c:forEach items="${subCategory}" var="sc">
@@ -105,11 +105,15 @@
             items_per_page: perSize,
             callback: function (index) {
                 if (curPage != index) {
-                    window.location.href = "${ctx}/products?&${searchParams}&page=" + (index + 1) ;
+                    window.location.href = "${ctx}/products?&toggle=${toggle}&${searchParams}&page=" + (index + 1) ;
                 }
             }
         });
     });
+
+    function toggle(v) {
+        window.location.href = "${ctx}/products?&toggle="+v+"&${searchParams}&page=" + (index + 1) ;
+    }
 </script>
 </body>
 </html>
