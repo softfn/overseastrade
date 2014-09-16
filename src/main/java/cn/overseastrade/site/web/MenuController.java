@@ -146,11 +146,13 @@ public class MenuController {
         searchParams.put("RK_category.code", category.getCode());
         Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
         model.addAttribute("productPage", productPage);
+
+        model.addAttribute("id", id);
         model.addAttribute("toggle", toggle);
         if (toggle == 1) {
-            model.addAttribute("toggle1", 1);
-        } else {
             model.addAttribute("toggle1", 2);
+        } else {
+            model.addAttribute("toggle1", 1);
         }
 
         return "products/category";
