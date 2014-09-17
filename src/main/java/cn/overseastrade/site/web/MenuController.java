@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springside.modules.web.Servlets;
 
 import javax.servlet.ServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -120,8 +121,19 @@ public class MenuController {
     }
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public String products() {
-        return "products/scroll";
+    public String products(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
+                           Model model, ServletRequest request) {
+        Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
+        model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
+
+        model.addAttribute("title", "Products");
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
+        model.addAttribute("productPage", productPage);
+
+        model.addAttribute("toggle", 1);
+        model.addAttribute("toggle1", 2);
+
+        return "products/category";
     }
 
     @RequestMapping(value = "/products/view/{id}", method = RequestMethod.GET)
@@ -131,7 +143,7 @@ public class MenuController {
         return "products/view";
     }
 
-    @RequestMapping(value = "/products/category/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = {"/products/category/","/products/category/{id}"}, method = RequestMethod.GET)
     public String products(@PathVariable("id") Long id, @RequestParam(value = "page", defaultValue = "1") int pageNumber,
              @RequestParam(value = "toggle", defaultValue = "1") int toggle, Model model, ServletRequest request) {
         model.addAttribute("categoryId", id);
@@ -166,10 +178,13 @@ public class MenuController {
 
         searchParams.put("LIKE_name", keywords);
         model.addAttribute("title", "Products");
-        model.addAttribute("keywords", "keywords");
+        model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
         Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
         model.addAttribute("productPage", productPage);
+
+        model.addAttribute("toggle", 1);
+        model.addAttribute("toggle1", 2);
 
         return "products/category";
     }

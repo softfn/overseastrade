@@ -12,7 +12,7 @@
         .entry {
             margin: 10px 10px 0px 6px;
             border-bottom: 1px solid #dedede;
-            height: 80px;
+            height: 90px;
         }
 
         .entry a {
@@ -73,7 +73,6 @@
             width: 84px;
             height: 78px;
             border: 1px solid #f4f4f4;
-            margin-top: -5px
         }
 
         .picView {

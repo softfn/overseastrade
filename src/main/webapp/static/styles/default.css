@@ -54,6 +54,7 @@ a,img{border:0;}
 #hotproducts { height: auto; overflow: hidden; margin-top: 4px }
 .product-grid { min-height: 450px; }
 .product-item { float: left; width: 180px; height: 210px; border: solid #ececec 1px; margin: 5px 6px; cursor: pointer; border-radius: 4px;}
+.rel-product-item { float: left; width: 140px; height: 160px; border: solid #ececec 1px; margin: 5px 6px; cursor: pointer; border-radius: 4px;}
 .product-item-over { border: solid #3681AE 1px; margin: 5px 6px; }
 #more { margin-top: 3px; margin-right: 6px; float: right; width: 50px; height: 16px; line-height: 16px; background: #558EB9; border: 1px solid #4F9ED9; color: #F7F7F7; text-align: center; font-size: 10px; cursor: pointer; font-style: italic; }
 #footer { padding: 12px 0px; font-size: 95%; text-align: center; border-top: 6px solid #3681AE; clear: both; }

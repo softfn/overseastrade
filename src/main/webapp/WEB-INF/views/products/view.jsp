@@ -57,11 +57,15 @@
     ${product.description}
 </div>
 <div class="section">Related products</div>
-<div class="product-grid" style="min-height: 230px; ">
-    <div class="product-item"></div>
-    <div class="product-item"></div>
-    <div class="product-item"></div>
-    <div class="product-item"></div>
+<div class="product-grid" style="min-height: 150px;">
+    <c:forEach items="${product.referProducts}" var="refProduct">
+        <div class="rel-product-item">
+            <a href="${ctx}/products/view/${refProduct.id}" target="_blank" style="">
+                <img src="${ctx}${refProduct.pictures[0].path}" style="width: 140px; height: 160px;
+                border: 1px solid #ededed;" title="${refProduct.name}">
+            </a>
+        </div>
+    </c:forEach>
 </div>
 <div style="float: right; height: 30px; padding-right: 14px; clear: both">
     <a href="#" onclick="cl()">Close</a>&nbsp;&nbsp;&nbsp;&nbsp;
