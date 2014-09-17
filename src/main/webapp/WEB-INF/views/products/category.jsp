@@ -84,8 +84,14 @@
 </head>
 <body>
 <div class="title">Products
-    <img src="${ctx}/static/images/v2${toggle}.png" title="switch display" onclick="toggle(${toggle1});">
-    <img src="${ctx}/static/images/v1${toggle}.png" title="switch display" onclick="toggle(${toggle1});">
+    <c:if test="${toggle == 1}">
+        <img src="${ctx}/static/images/v22.png" title="switch display" onclick="toggle(2);">
+        <img src="${ctx}/static/images/v11.png" title="switch display">
+    </c:if>
+    <c:if test="${toggle == 2}">
+        <img src="${ctx}/static/images/v21.png" title="switch display">
+        <img src="${ctx}/static/images/v12.png" title="switch display" onclick="toggle(1);">
+    </c:if>
 </div>
 <div style="margin-top: -12px">
     <c:forEach items="${subCategory}" var="sc">
