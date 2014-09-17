@@ -10,32 +10,40 @@
     <script src="${ctx}/static/pagination/jquery.pagination.js" type="text/javascript"></script>
     <style type="text/css">
         .entry {
-            margin: 0 20px 0 6px;
-            height: 30px;
-            line-height: 30px;
+            margin: 10px 10px 0px 6px;
             border-bottom: 1px solid #dedede;
+            height: 80px;
         }
 
-        .etlf {
-            float: left;
-            background: url("${ctx}/static/images/ar.gif") no-repeat 8px 8px;
-            text-indent: 1.5em;
-        }
-
-        .etlf a {
+        .entry a {
             color: #000000;
             text-decoration: none;
         }
 
-        .etlf a:hover {
+        .entry a:hover {
             text-decoration: none;
             color: #3681AE;
-            font-weight: bold;
+        }
+
+        .etlf {
+            float: left;
+            height: 80px;
+            width: 110px;
+        }
+
+        .etmd {
+            float: left;
+            height: 80px;
+            width: 560px;
         }
 
         .etrt {
             float: right;
+            width: 70px;
+            height: 80px;
+            vertical-align: middle;
         }
+
         .badge {
             display: inline-block;
             min-width: 10px;
@@ -47,16 +55,31 @@
             text-align: center;
             white-space: nowrap;
             vertical-align: baseline;
-            background-color: rgba(58, 157, 205, 0.64);
+            background-color: #79A6C8;
             border-radius: 8px;
             margin-bottom: 6px;
         }
+
         .selected {
             background-color: #3fa3d7 !important;
         }
+
         .badge a {
             color: #fff;
             text-decoration: none;
+        }
+
+        .pic {
+            width: 84px;
+            height: 78px;
+            border: 1px solid #f4f4f4;
+            margin-top: -5px
+        }
+
+        .picView {
+            display: none;
+            position: absolute;
+            z-index: 1000
         }
     </style>
 </head>
@@ -80,16 +103,38 @@
 <c:forEach items="${productPage.content}" var="pp">
     <div class="entry">
         <span class="etlf">
-            <a href="${ctx}/products/view/${pp.id}">
-                <c:choose>
-                    <c:when test="${fn:length(pp.name) > 90}">
-                        <c:out value="${fn:substring(pp.name, 0, 90)}…" />
-                    </c:when>
-                    <c:otherwise>
-                        <c:out value="${pp.name}" />
-                    </c:otherwise>
-                </c:choose>
-            </a>
+            <img class="pic" src="${ctx}${pp.pictures[0].path}">
+            <c:if test="${fn:length(pp.pictures) > 0}">
+                <div class="picView">
+                    <img src="${ctx}${pp.pictures[0].path}" width="260px" style="border: 1px solid #ededed;">
+                </div>
+            </c:if>
+        </span>
+        <span class="etmd">
+            <span style="display: block">
+                <a href="${ctx}/products/view/${pp.id}" style="font-weight: bold;">
+                    <c:choose>
+                        <c:when test="${fn:length(pp.name) > 90}">
+                            <c:out value="${fn:substring(pp.name, 0, 90)}…" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:out value="${pp.name}" />
+                        </c:otherwise>
+                    </c:choose>
+                </a>
+            </span>
+            <span style="line-height: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="${ctx}/products/view/${pp.id}" style="color: #000000">
+                    <c:choose>
+                        <c:when test="${fn:length(pp.brief) > 290}">
+                            <c:out value="${fn:substring(pp.brief, 0, 290)}…" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:out value="${pp.brief}" />
+                        </c:otherwise>
+                    </c:choose>
+                </a>
+            </span>
         </span>
         <span class="etrt"><fmt:formatDate value="${pp.time}" pattern="dd/MM/yyyy"/></span>
     </div>
@@ -108,6 +153,13 @@
                     window.location.href = "${ctx}/products/category/${id}?&toggle=${toggle}&${searchParams}&page=" + (index + 1) ;
                 }
             }
+        });
+        $(".pic").mouseover(function () {
+            var left = $(this).offset().left + 83;
+            var top = $(this).offset().top;
+            $(this).parent().find(".picView").css({top:top,left:left}).show();
+        }).mouseout(function () {
+            $(this).parent().find(".picView").hide();
         });
     });
 

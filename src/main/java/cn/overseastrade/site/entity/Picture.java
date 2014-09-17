@@ -20,7 +20,6 @@ public class Picture extends IdEntity {
     private String name;
     private String path;
     private Integer seq;
-    private Integer blockSize = 1;
     private Date time;
 
     @ManyToOne
@@ -51,14 +50,6 @@ public class Picture extends IdEntity {
         this.path = path;
     }
 
-    public Integer getBlockSize() {
-        return blockSize;
-    }
-
-    public void setBlockSize(Integer blockSize) {
-        this.blockSize = blockSize;
-    }
-
     public Date getTime() {
         return time;
     }
@@ -82,7 +73,6 @@ public class Picture extends IdEntity {
                 ", name='" + name + '\'' +
                 ", path='" + path + '\'' +
                 ", seq=" + seq +
-                ", blockSize=" + blockSize +
                 ", time=" + time +
                 '}';
     }
