@@ -105,45 +105,50 @@
         </c:choose>
     </c:forEach>
 </div>
-<c:forEach items="${productPage.content}" var="pp">
-    <div class="entry">
-        <span class="etlf">
-            <img class="pic" src="${ctx}${pp.pictures[0].path}">
-            <c:if test="${fn:length(pp.pictures) > 0}">
-                <div class="picView">
-                    <img src="${ctx}${pp.pictures[0].path}" width="260px" style="border: 1px solid #ededed;">
-                </div>
-            </c:if>
-        </span>
-        <span class="etmd">
-            <span style="display: block">
-                <a href="${ctx}/products/view/${pp.id}" style="font-weight: bold;">
-                    <c:choose>
-                        <c:when test="${fn:length(pp.name) > 90}">
-                            <c:out value="${fn:substring(pp.name, 0, 90)}…" />
-                        </c:when>
-                        <c:otherwise>
-                            <c:out value="${pp.name}" />
-                        </c:otherwise>
-                    </c:choose>
-                </a>
+<c:if test="${toggle == 1}">
+    <c:forEach items="${productPage.content}" var="pp">
+        <div class="entry">
+            <span class="etlf">
+                <img class="pic" src="${ctx}${pp.pictures[0].path}">
+                <c:if test="${fn:length(pp.pictures) > 0}">
+                    <div class="picView">
+                        <img src="${ctx}${pp.pictures[0].path}" width="260px" style="border: 1px solid #ededed;">
+                    </div>
+                </c:if>
             </span>
-            <span style="line-height: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="${ctx}/products/view/${pp.id}" style="color: #000000">
-                    <c:choose>
-                        <c:when test="${fn:length(pp.brief) > 290}">
-                            <c:out value="${fn:substring(pp.brief, 0, 290)}…" />
-                        </c:when>
-                        <c:otherwise>
-                            <c:out value="${pp.brief}" />
-                        </c:otherwise>
-                    </c:choose>
-                </a>
+            <span class="etmd">
+                <span style="display: block">
+                    <a href="${ctx}/products/view/${pp.id}" style="font-weight: bold;">
+                        <c:choose>
+                            <c:when test="${fn:length(pp.name) > 90}">
+                                <c:out value="${fn:substring(pp.name, 0, 90)}…" />
+                            </c:when>
+                            <c:otherwise>
+                                <c:out value="${pp.name}" />
+                            </c:otherwise>
+                        </c:choose>
+                    </a>
+                </span>
+                <span style="line-height: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="${ctx}/products/view/${pp.id}" style="color: #000000">
+                        <c:choose>
+                            <c:when test="${fn:length(pp.brief) > 290}">
+                                <c:out value="${fn:substring(pp.brief, 0, 290)}…" />
+                            </c:when>
+                            <c:otherwise>
+                                <c:out value="${pp.brief}" />
+                            </c:otherwise>
+                        </c:choose>
+                    </a>
+                </span>
             </span>
-        </span>
-        <span class="etrt"><fmt:formatDate value="${pp.time}" pattern="dd/MM/yyyy"/></span>
-    </div>
-</c:forEach>
+            <span class="etrt"><fmt:formatDate value="${pp.time}" pattern="dd/MM/yyyy"/></span>
+        </div>
+    </c:forEach>
+</c:if>
+<c:if test="${toggle == 2}">
+sdfa
+</c:if>
 <div id="Pagination" class="pagination"></div>
 <script type="text/javascript">
     var url = "/products";

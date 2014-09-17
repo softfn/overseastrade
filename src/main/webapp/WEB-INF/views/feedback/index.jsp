@@ -95,6 +95,10 @@
 </form>
 <script>
     $(document).ready(function() {
+        var title = $("#title").val();
+        if (!title) {
+            $("#title").val("${param.title}");
+        }
         $("#feedbackForm").validate({
             rules: {
                 name: {

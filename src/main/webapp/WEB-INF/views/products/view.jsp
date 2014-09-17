@@ -1,12 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>${product.name} - Product View</title>
     <meta name="description" content="${product.brief}"/>
     <meta name="keywords" content="${product.keywords}"/>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5419d03b6dfc1612"></script>
     <style>
         .section {
             height: 25px;
@@ -47,9 +50,21 @@
     </div>
     <div style="width: 480px; min-height: 360px; float: right; margin-right: 10px">
         <div style="height:30px; line-height: 30px; font-weight: bold; font-size: 13px">${product.name}</div>
-        <div style="line-height: 20px;">${product.brief}</div>
-        <div></div>
-        <div></div>
+        <div style="line-height: 20px; height: 260px">
+            <c:choose>
+                <c:when test="${fn:length(product.brief) > 1000}">
+                    <c:out value="${fn:substring(product.brief, 0, 1000)}…" />
+                </c:when>
+                <c:otherwise>
+                    <c:out value="product.brief" />
+                </c:otherwise>
+            </c:choose>
+        </div>
+        <div style="margin-bottom: 6px">
+            <a href="${ctx}/feedback?title=${product.name}"><img src="${ctx}/static/images/contactus.jpg" style="border: 0"></a>
+        </div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_sharing_toolbox"></div>
     </div>
 </div>
 <div class="section">Detailed description</div>
