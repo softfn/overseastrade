@@ -127,7 +127,7 @@ public class MenuController {
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
         model.addAttribute("title", "Products");
-        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 8, "time");
         model.addAttribute("productPage", productPage);
 
         model.addAttribute("toggle", 1);
@@ -143,7 +143,7 @@ public class MenuController {
         return "products/view";
     }
 
-    @RequestMapping(value = {"/products/category/","/products/category/{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/products/category/{id}", method = RequestMethod.GET)
     public String products(@PathVariable("id") Long id, @RequestParam(value = "page", defaultValue = "1") int pageNumber,
              @RequestParam(value = "toggle", defaultValue = "1") int toggle, Model model, ServletRequest request) {
         model.addAttribute("categoryId", id);
@@ -156,7 +156,7 @@ public class MenuController {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
         searchParams.put("RK_category.code", category.getCode());
-        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 8, "time");
         model.addAttribute("productPage", productPage);
 
         model.addAttribute("id", id);
@@ -180,7 +180,7 @@ public class MenuController {
         model.addAttribute("title", "Products");
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
-        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 25, "time");
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 8, "time");
         model.addAttribute("productPage", productPage);
 
         model.addAttribute("toggle", 1);

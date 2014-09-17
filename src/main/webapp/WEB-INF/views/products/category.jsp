@@ -140,16 +140,21 @@
 </c:forEach>
 <div id="Pagination" class="pagination"></div>
 <script type="text/javascript">
+    var url = "/products";
     var curPage = ${productPage.number};
     var perSize = ${productPage.size};
     var count = ${productPage.totalElements};
+    var id = "${id}";
     $(document).ready(function () {
+        if (id) {
+            url += "/category/${id}"
+        }
         $("#Pagination").pagination(count, {
             current_page: curPage,
             items_per_page: perSize,
             callback: function (index) {
                 if (curPage != index) {
-                    window.location.href = "${ctx}/products/category/${id}?&toggle=${toggle}&${searchParams}&page=" + (index + 1) ;
+                    window.location.href = "${ctx}" + url + "?&toggle=${toggle}&${searchParams}&page=" + (index + 1) ;
                 }
             }
         });
@@ -163,7 +168,7 @@
     });
 
     function toggle(v) {
-        window.location.href = "${ctx}/products/category/${id}?&toggle="+v+"&${searchParams}" ;
+        window.location.href = "${ctx}" + url + "?&toggle="+v+"&${searchParams}" ;
     }
 </script>
 </body>

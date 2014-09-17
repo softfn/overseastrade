@@ -44,7 +44,7 @@
         <div class="form-group">
             <label for="description" class="col-sm-1 control-label">Description</label>
             <div class="col-sm-11">
-                <textarea class="form-control" id="description" name="description"  rows="40" required>${product.description}</textarea>
+                <textarea class="form-control" id="description" name="description"  rows="30" required>${product.description}</textarea>
             </div>
         </div>
         <div class="form-group">

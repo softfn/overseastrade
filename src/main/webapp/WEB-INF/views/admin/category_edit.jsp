@@ -42,7 +42,7 @@
         <div class="form-group">
             <label for="seq" class="col-sm-2 control-label">SEQ</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="seq" name="seq" value="${category.seq}" placeholder="1" required>
+                <input type="text" class="form-control" id="seq" name="seq" value="${category.seq}" required>
             </div>
         </div>
         <div class="form-group">
@@ -57,6 +57,10 @@
 <script type="text/javascript">
     var editor;
     $(document).ready(function () {
+        var seq = $("#seq").val();
+        if (!seq) {
+            $("#seq").val(1);
+        }
         $(".form-horizontal").validate({
             rules: {
                 seq: {
