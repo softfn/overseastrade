@@ -49,8 +49,8 @@ public class MenuController {
 
     @RequestMapping(value = {"/home", "/"})
     public String home(Model model) {
-        List<News> topNews = newsService.findTopNews();
-        model.addAttribute("newses", topNews);
+        List<Product> hotProducts = productService.findHotProducts();
+        model.addAttribute("hotProducts", hotProducts);
         return "index";
     }
 

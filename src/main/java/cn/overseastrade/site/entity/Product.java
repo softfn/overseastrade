@@ -17,6 +17,7 @@ import java.util.List;
 public class Product extends IdEntity {
     private Category category;
     private String name;
+    private Integer hot;
     private String keywords;
     private String brief;
     private String description;
@@ -42,6 +43,14 @@ public class Product extends IdEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getHot() {
+        return hot;
+    }
+
+    public void setHot(Integer hot) {
+        this.hot = hot;
     }
 
     public String getKeywords() {
@@ -108,11 +117,14 @@ public class Product extends IdEntity {
     @Override
     public String toString() {
         return "Product{" +
-                "name='" + name + '\'' +
+                "category=" + category +
+                ", name='" + name + '\'' +
+                ", hot=" + hot +
                 ", keywords='" + keywords + '\'' +
                 ", brief='" + brief + '\'' +
                 ", description='" + description + '\'' +
                 ", time=" + time +
+                ", pictures=" + pictures +
                 '}';
     }
 }

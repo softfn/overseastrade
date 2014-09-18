@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -53,14 +55,23 @@
 <div id="hotproducts">
     <div class="content-title">Hot Pouducts<div id="more" onclick="window.location.href = '${ctx}/products'">More >></div></div>
     <div class="product-grid">
-        <div class="product-item"></div>
-        <div class="product-item"></div>
-        <div class="product-item"></div>
-        <div class="product-item"></div>
-        <div class="product-item"></div>
-        <div class="product-item"></div>
-        <div class="product-item"></div>
-        <div class="product-item"></div>
+        <c:forEach items="${hotProducts}" var="hp">
+            <div class="product-item" productId="${hp.id}" title="${hp.name}">
+                <div class="imgholder">
+                    <img src="${ctx}${hp.pictures[0].path}" width="176px" height="176px" style="margin: 2px" />
+                </div>
+                <p style="height: 30px; line-height: 30px; text-align: center; font-size: 12px; font-weight: 400">
+                    <c:choose>
+                        <c:when test="${fn:length(hp.name) > 24}">
+                            <c:out value="${fn:substring(hp.name, 0, 24)}…" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:out value="${hp.name}" />
+                        </c:otherwise>
+                    </c:choose>
+                </p>
+            </div>
+        </c:forEach>
     </div>
 </div>
 <script type="text/javascript">
@@ -74,6 +85,9 @@
             $(this).addClass("product-item-over");
         }).mouseout(function () {
             $(this).removeClass("product-item-over");
+        }).click(function () {
+            var productId = $(this).attr("productId");
+            window.location.href = "${ctx}/products/view/" + productId ;
         });
     });
 </script>

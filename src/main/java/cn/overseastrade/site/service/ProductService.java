@@ -49,6 +49,8 @@ public class ProductService {
             sort = new Sort(Sort.Direction.ASC, "name");
         } else if ("time".equals(sortType)) {
             sort = new Sort(Sort.Direction.DESC, "time");
+        } else if ("hot".equals(sortType)) {
+            sort = new Sort(Sort.Direction.DESC, "hot");
         }
         return new PageRequest(pageNumber - 1, pagzSize, sort);
     }
@@ -68,7 +70,7 @@ public class ProductService {
     }
 
     public List<Product> findHotProducts() {
-        PageRequest pageRequest = buildPageRequest(1, 8, "time");
+        PageRequest pageRequest = buildPageRequest(1, 8, "hot");
         Specification<Product> spec = buildSpecification(new HashMap<String, Object>());
         return productDao.findAll(spec, pageRequest).getContent();
     }

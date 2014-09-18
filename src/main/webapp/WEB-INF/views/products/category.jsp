@@ -9,7 +9,7 @@
     <link href="${ctx}/static/pagination/pagination.css" type="text/css" rel="stylesheet"/>
     <script src="${ctx}/static/pagination/jquery.pagination.js" type="text/javascript"></script>
     <style type="text/css">
-        .entry { margin: 10px 10px 0px 6px; border-bottom: 1px solid #dedede; height: 90px; }
+        .entry { margin: 10px 10px 0px 6px; border-bottom: 1px solid #f3f3f3; height: 90px; }
         .entry a { color: #000000; text-decoration: none; } .entry a:hover { text-decoration: none; color: #3681AE; }
         .etlf { float: left; height: 80px; width: 110px; } .etmd { float: left; height: 80px; width: 560px; } .etrt { float: right; width: 70px; height: 80px; vertical-align: middle; }
         .badge { display: inline-block; min-width: 10px; padding: 3px 7px; font-size: 12px; font-weight: 500; line-height: 1; color: #fff; text-align: center; white-space: nowrap; vertical-align: baseline; background-color: #79A6C8; border-radius: 8px; margin-bottom: 6px; }

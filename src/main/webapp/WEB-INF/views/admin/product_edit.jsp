@@ -14,11 +14,11 @@
         <input id="id" name="id" type="hidden" value="${product.id}">
         <div class="form-group">
             <label for="name" class="col-sm-1 control-label">Name</label>
-            <div class="col-sm-5">
+            <div class="col-sm-3">
                 <input type="text" class="form-control" id="name" name="name" value="${product.name}" placeholder="Product Name" required autofocus>
             </div>
             <label for="category.id" class="col-sm-1 control-label">Category</label>
-            <div class="col-sm-5">
+            <div class="col-sm-3">
                 <select class="form-control" id="category.id" name="category.id" required>
                     <option value=""></option>
                     <c:forEach items="${categories}" var="category">
@@ -27,6 +27,10 @@
                         </option>
                     </c:forEach>
                 </select>
+            </div>
+            <label for="hot" class="col-sm-1 control-label">Hot</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control" id="hot" name="hot" value="${product.hot}" placeholder="Product hot" required>
             </div>
         </div>
         <div class="form-group">
@@ -59,7 +63,13 @@
 <script type="text/javascript">
     var editor;
     $(document).ready(function () {
-        $(".form-horizontal").validate();
+        $(".form-horizontal").validate({
+            rules: {
+                hot: {
+                    digits: true
+                }
+            }
+        });
         KindEditor.ready(function (K) {
             editor = K.create('textarea[name="description"]', {
                 allowFileManager: true

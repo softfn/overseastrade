@@ -29,6 +29,7 @@ public class ProductController {
         sortTypes.put("auto", "default");
         sortTypes.put("category", "category");
         sortTypes.put("name", "name");
+        sortTypes.put("hot", "hot");
         sortTypes.put("time", "time");
     }
 
