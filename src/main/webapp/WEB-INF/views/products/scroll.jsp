@@ -14,7 +14,7 @@
             padding-bottom: 10px;
             display: none;
         }
-        .grid{
+        .porductGrid {
             width:188px;
             min-height:100px;
             padding: 8px;
@@ -30,19 +30,19 @@
             -o-transition: top 1s ease, left 1s ease;
             -ms-transition: top 1s ease, left 1s ease;
         }
-        .grid strong {
+        .porductGrid strong {
             border-bottom:1px dashed #ccc;
             margin:6px 0;
             display:block;
             padding:0 0 5px;
             font-size:14px;
         }
-        .grid .meta{
+        .porductGrid .meta{
             text-align:right;
             color:#777;
             font-style:italic;
         }
-        .grid .imgholder img{
+        .porductGrid .imgholder img{
             max-width:100%;
             background:#ccc;
             display:block;
@@ -52,7 +52,7 @@
 <body>
 <div id="scrollContainer">
     <div id="scroll" class="scroll">
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img27.jpg" />
             </div>
@@ -60,7 +60,7 @@
             <p>A peaceful sunset view...</p>
             <div class="meta">by j osborn</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img26.jpg" />
             </div>
@@ -68,7 +68,7 @@
             <p>Where is the bridge lead to?</p>
             <div class="meta">by SigitEko</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img15.jpg" />
             </div>
@@ -76,7 +76,7 @@
             <p>The fall of the tree...</p>
             <div class="meta">by Lars van de Goor</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img23.jpg" />
             </div>
@@ -84,7 +84,7 @@
             <p>Winter feel...</p>
             <div class="meta">by Andrea Andrade</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img17.jpg" />
             </div>
@@ -92,7 +92,7 @@
             <p>The only shinning light...</p>
             <div class="meta">by Lars van de Goor</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img22.jpg" />
             </div>
@@ -100,7 +100,7 @@
             <p>Rooster's ranch landscape...</p>
             <div class="meta">by Andrea Andrade</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img16.jpg" />
             </div>
@@ -108,7 +108,7 @@
             <p>Sun shinning into forest...</p>
             <div class="meta">by Lars van de Goor</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img21.jpg" />
             </div>
@@ -116,7 +116,7 @@
             <p>It is yellow cloudy...</p>
             <div class="meta">by Zsolt Zsigmond</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img28.jpg" />
             </div>
@@ -124,7 +124,7 @@
             <p>Just a herringfleet mill...</p>
             <div class="meta">by Ian Flindt</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img2.jpg" />
             </div>
@@ -132,7 +132,7 @@
             <p>Battle Field for you...</p>
             <div class="meta">by Andrea Andrade</div>
         </div>
-        <div class="grid">
+        <div class="porductGrid">
             <div class="imgholder">
                 <img src="http://www.inwebson.com/demo/blocksit-js/demo2/images/img24.jpg" />
             </div>
@@ -156,7 +156,11 @@
 
         $("#scrollContainer").waitForImages(function() {
             $("#scrollContainer").show();
-            blocksItInit();
+            $('#scroll').BlocksIt({
+                numOfCol: 4,
+                offsetX: 4,
+                offsetY: 4
+            });
         });
     });
 

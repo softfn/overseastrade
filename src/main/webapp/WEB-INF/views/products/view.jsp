@@ -11,27 +11,10 @@
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5419d03b6dfc1612"></script>
     <style>
-        .section {
-            height: 25px;
-            line-height: 25px;
-            font-weight: bold;
-            font-size: 13px;
-            border-bottom: 1px solid #CCC;
-            clear: both;
-            margin: 8px
-        }
-        .pic {
-            height: 280px;
-        }
-        .picItem {
-            width: 66px; height: 70px; float: left; margin: 4px 4px 4px 0;
-        }
-        .picItem img {
-            cursor: pointer;
-            border: 1px solid #dfdfdf;
-            width: 66px;
-            height: 70px;
-        }
+        .section { height: 25px; line-height: 25px; font-weight: bold; font-size: 13px; border-bottom: 1px solid #CCC; clear: both; margin: 8px }
+        .pic { height: 280px; }
+        .picItem { width: 66px; height: 70px; float: left; margin: 4px 4px 4px 0; }
+        .picItem img { cursor: pointer; border: 1px solid #dfdfdf; width: 66px; height: 70px; }
     </style>
 </head>
 <body>
@@ -49,7 +32,16 @@
         </div>
     </div>
     <div style="width: 480px; min-height: 360px; float: right; margin-right: 10px">
-        <div style="height:30px; line-height: 30px; font-weight: bold; font-size: 13px">${product.name}</div>
+        <div style="height:30px; line-height: 30px; font-weight: bold; font-size: 13px" title="${product.name}">
+            <c:choose>
+                <c:when test="${fn:length(product.name) > 60}">
+                    <c:out value="${fn:substring(product.name, 0, 60)}…" />
+                </c:when>
+                <c:otherwise>
+                    <c:out value="${product.name}" />
+                </c:otherwise>
+            </c:choose>
+        </div>
         <div style="line-height: 20px; height: 260px">
             <c:choose>
                 <c:when test="${fn:length(product.brief) > 1000}">

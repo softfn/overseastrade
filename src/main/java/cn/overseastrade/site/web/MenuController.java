@@ -122,12 +122,12 @@ public class MenuController {
 
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String products(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
-                           @RequestParam(value = "toggle", defaultValue = "1") int toggle, Model model, ServletRequest request) {
+                           @RequestParam(value = "toggle", defaultValue = "2") int toggle, Model model, ServletRequest request) {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
         model.addAttribute("title", "Products");
-        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 8, "time");
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, (toggle == 2 ? 12 : 8), "time");
         model.addAttribute("productPage", productPage);
         model.addAttribute("toggle", toggle);
 
@@ -143,7 +143,7 @@ public class MenuController {
 
     @RequestMapping(value = "/products/category/{id}", method = RequestMethod.GET)
     public String products(@PathVariable("id") Long id, @RequestParam(value = "page", defaultValue = "1") int pageNumber,
-             @RequestParam(value = "toggle", defaultValue = "1") int toggle, Model model, ServletRequest request) {
+             @RequestParam(value = "toggle", defaultValue = "2") int toggle, Model model, ServletRequest request) {
         model.addAttribute("categoryId", id);
 
         Category category = categoryService.getCategory(id);
@@ -154,7 +154,7 @@ public class MenuController {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
         searchParams.put("RK_category.code", category.getCode());
-        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 8, "time");
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, (toggle == 2 ? 12 : 8), "time");
         model.addAttribute("productPage", productPage);
 
         model.addAttribute("id", id);
@@ -164,7 +164,7 @@ public class MenuController {
 
     @RequestMapping(value = "/products/search/{keywords}", method = RequestMethod.GET)
     public String products(@PathVariable("keywords") String keywords, @RequestParam(value = "page", defaultValue = "1") int pageNumber,
-                           @RequestParam(value = "toggle", defaultValue = "1") int toggle, Model model, ServletRequest request) {
+                           @RequestParam(value = "toggle", defaultValue = "2") int toggle, Model model, ServletRequest request) {
         Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
@@ -172,7 +172,7 @@ public class MenuController {
         model.addAttribute("title", "Products");
         model.addAttribute("searchParams", Servlets.encodeParameterStringWithPrefix(searchParams, "search_"));
 
-        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, 8, "time");
+        Page<Product> productPage = productService.getProduct(searchParams, pageNumber, (toggle == 2 ? 12 : 8), "time");
         model.addAttribute("productPage", productPage);
 
         model.addAttribute("toggle", toggle);
