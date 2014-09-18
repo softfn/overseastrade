@@ -63,6 +63,10 @@
 <script type="text/javascript">
     var editor;
     $(document).ready(function () {
+        var seq = $("#hot").val();
+        if (!seq) {
+            $("#hot").val(1);
+        }
         $(".form-horizontal").validate({
             rules: {
                 hot: {
