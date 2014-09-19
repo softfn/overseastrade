@@ -24,9 +24,9 @@
             <img src="${ctx}${product.pictures[0].path}" title="${product.pictures[0].name}" width="280px" height="280px">
         </div>
         <div>
-            <c:forEach items="${product.pictures}" var="picture">
+            <c:forEach items="${product.pictures}" var="pic">
                 <div class="picItem">
-                    <img src="${ctx}${picture.path}" title="${picture.name}">
+                    <img src="${ctx}${pic.path}" title="${pic.name}">
                 </div>
             </c:forEach>
         </div>
@@ -48,7 +48,7 @@
                     <c:out value="${fn:substring(product.brief, 0, 1000)}…" />
                 </c:when>
                 <c:otherwise>
-                    <c:out value="product.brief" />
+                    <c:out value="${product.brief}" />
                 </c:otherwise>
             </c:choose>
         </div>

@@ -45,6 +45,41 @@
                 <textarea class="form-control" id="brief" name="brief" rows="4" placeholder="Product Brief" required>${product.brief}</textarea>
             </div>
         </div>
+        <c:forEach items="${product.pictures}" var="pic" varStatus="vs">
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Picture${vs.count}</label>
+                <input type="hidden" name="pictures[${vs.count - 1}].id" value="${pic.id}">
+                <input type="hidden" name="pictures[${vs.count - 1}].product.id" value="${pic.product.id}">
+                <input type="hidden" name="pictures[${vs.count - 1}].seq" value="${pic.seq}">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="pictures[${vs.count - 1}].name" value="${pic.name}" placeholder="Picture name" required>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="pictures[${vs.count - 1}].path" value="${pic.path}" placeholder="Picture path" readonly required>
+                </div>
+                <div class="col-sm-1">
+                    <input type="button" value="Select" onclick="selectPic('pictures[${vs.count - 1}].path')" class="btn btn-default btn-sm">
+                </div>
+            </div>
+        </c:forEach>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Related products</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="referProducts[0].id" value="${product.referProducts[0].id}" placeholder="Related Product id">
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="referProducts[1].id" value="${product.referProducts[1].id}" placeholder="Related Product id">
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="referProducts[2].id" value="${product.referProducts[2].id}" placeholder="Related Product id">
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="referProducts[3].id" value="${product.referProducts[3].id}" placeholder="Related Product id">
+            </div>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="referProducts[4].id" value="${product.referProducts[4].id}" placeholder="Related Product id">
+            </div>
+        </div>
         <div class="form-group">
             <label for="description" class="col-sm-1 control-label">Description</label>
             <div class="col-sm-11">
@@ -79,7 +114,21 @@
                 allowFileManager: true
             });
         });
-    })
+
+    });
+
+    function selectPic(inputName) {
+        editor.loadPlugin('filemanager', function() {
+            editor.plugin.filemanagerDialog({
+                viewType : 'VIEW',
+                dirName : 'image',
+                clickFn : function(url, title) {
+                    $("input[name='"+inputName+"']").val(url);
+                    editor.hideDialog();
+                }
+            });
+        });
+    }
 </script>
 </body>
 </html>
