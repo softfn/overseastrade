@@ -39,7 +39,7 @@
         <th width="250px">Name</th>
         <th>Brief</th>
         <th width="150px">Create Time</th>
-        <th width="100px">Manage</th>
+        <th width="140px">Manage</th>
     </tr>
     </thead>
     <tbody>
@@ -58,8 +58,8 @@
             </td>
             <td>
                 <c:choose>
-                    <c:when test="${fn:length(product.brief) > 90}">
-                        <c:out value="${fn:substring(product.brief, 0, 90)}…" />
+                    <c:when test="${fn:length(product.brief) > 80}">
+                        <c:out value="${fn:substring(product.brief, 0, 80)}…" />
                     </c:when>
                     <c:otherwise>
                         <c:out value="${product.brief}" />
@@ -69,7 +69,7 @@
             <td><fmt:formatDate value="${product.time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
             <td>
                 <a href="${ctx}/admin/product/edit/${product.id}">Edit</a>
-                | <a href="${ctx}/products/view/${product.id}">View</a>
+                | <a href="${ctx}/products/view/${product.id}" target="_blank">View</a>
                 | <a href="${ctx}/admin/product/delete/${product.id}">Delete</a>
             </td>
         </tr>
