@@ -23,6 +23,7 @@
 <body>
 <div class="container">
     <form id="loginForm" action="${ctx}/login" method="post" class="form-horizontal" role="form">
+        <div style="height:80px">&nbsp;</div>
         <h2 class="col-sm-offset-5 form-signin-heading">Please sign in</h2>
         <%
             String error = (String) request.getAttribute(FormAuthenticationFilter.DEFAULT_ERROR_KEY_ATTRIBUTE_NAME);
