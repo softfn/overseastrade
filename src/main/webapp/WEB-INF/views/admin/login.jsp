@@ -50,7 +50,7 @@
                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
             </div>
         </div>
-        <div class="form-group">
+        <%--<div class="form-group">
             <div class="col-sm-offset-5 col-sm-3">
                 <div class="checkbox">
                     <label>
@@ -58,7 +58,7 @@
                     </label>
                 </div>
             </div>
-        </div>
+        </div>--%>
         <div class="form-group">
             <div class="col-sm-offset-5 col-sm-3">
                 <button type="submit" class="btn btn-default">Sign in</button>

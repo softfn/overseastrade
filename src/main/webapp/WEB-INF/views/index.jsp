@@ -5,7 +5,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title></title>
+    <title>XinQi Technology Ltd</title>
     <script type="text/javascript" src="${ctx}/static/jquery/jquery-ui-1.8.6.core.widget.js"></script>
     <script type="text/javascript" src="${ctx}/static/jquery/jqueryui.bannerize.js"></script>
 </head>
