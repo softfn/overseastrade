@@ -17,9 +17,9 @@
 <div class="container">
     <form class="form-horizontal" role="form" action="${ctx}/admin/home/save" method="post">
         <div class="form-group">
-            <label class="col-sm-2 control-label">730 X 260</label>
-            <div class="col-sm-8">
-                <input type="button" id="uploadPicture" value="Upload Picture" class="btn btn-default btn-sm pull-right">
+            <label class="col-sm-2 control-label">Pixel:730 X 260</label>
+            <div class="col-sm-10">
+                <input type="button" id="uploadPicture" value="Upload Picture" class="btn btn-default btn-sm">
             </div>
         </div>
         <c:forEach items="${homes}" var="home" varStatus="vs">
