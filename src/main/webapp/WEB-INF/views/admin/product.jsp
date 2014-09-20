@@ -67,7 +67,11 @@
                 </c:choose>
             </td>
             <td><fmt:formatDate value="${product.time}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-            <td><a href="${ctx}/admin/product/edit/${product.id}">Edit</a> | <a href="${ctx}/admin/product/delete/${product.id}">Delete</a></td>
+            <td>
+                <a href="${ctx}/admin/product/edit/${product.id}">Edit</a>
+                | <a href="${ctx}/products/view/${product.id}">View</a>
+                | <a href="${ctx}/admin/product/delete/${product.id}">Delete</a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
