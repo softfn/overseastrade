@@ -6,13 +6,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><sitemesh:title/> - Overseas Trade - 深圳昕琦科技有限公司</title>
+<title><sitemesh:title/> - Overseas Trade - Shenzhen Xin Qi Technology Ltd</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <meta name="description" content="Shenzhen Overseas Trade Limited Company is a professional supplier of high quality home used healthcare products in Shenzhen city which is famous for its quality manufacturing industry city of China. "/>
-<meta name="keywords" content="Thermometer、Oximeter、oximeter、overseas trade、trade、深圳昕琦科技有限公司、昕琦、科技"/>
+<meta name="keywords" content="Thermometer、Oximeter、oximeter、overseas trade、trade、 Xin Qi、深圳昕琦科技有限公司、昕琦、科技"/>
 
 <link type="image/x-icon" href="${ctx}/static/images/favicon.ico" rel="shortcut icon">
 <link href="${ctx}/static/styles/default.css" type="text/css" rel="stylesheet" />
