@@ -13,7 +13,11 @@
 <div id="slideshow">
     <div id="banners" class="ui-banner">
         <ul class="ui-banner-slides">
-            <li><a href="${ctx}/"><img src="${ctx}/static/images/products/HeartHealthOmega.jpg" alt="NEW! Get Heart Smart With Essential Omega III" title="NEW! Get Heart Smart With Essential Omega III"/></a></li>
+            <c:forEach items="${homes}" var="home">
+                <li><a href="${ctx}/products/view/${home.referId}"><img src="${ctx}${home.path}" alt="${home.name}" title="${home.name}"/></a></li>
+            </c:forEach>
+           <%--
+           <li><a href="${ctx}/"><img src="${ctx}/static/images/products/HeartHealthOmega.jpg" alt="NEW! Get Heart Smart With Essential Omega III" title="NEW! Get Heart Smart With Essential Omega III"/></a></li>
             <li><a href="${ctx}/"><img src="${ctx}/static/images/products/CellLabs.jpg" alt="NEW! Support Your Skin on a Cellular Level" title="NEW! Support Your Skin on a Cellular Level"/></a></li>
             <li><a href="${ctx}/"><img src="${ctx}/static/images/products/RoyalSpa.jpg" alt="NEW! Indulge in Luxury With Royal Spa" title="NEW! Indulge in Luxury With Royal Spa"/></a></li>
             <li><a href="${ctx}/"><img src="${ctx}/static/images/products/Cashback.jpg" alt="NEW! Get paid to shop with Cashback" title="NEW! Get paid to shop with Cashback"/></a></li>
@@ -25,8 +29,22 @@
             <li><a href="${ctx}/"><img src="${ctx}/static/images/products/RoyalSpaRoyalHair.jpg" alt="Feel like a princess with Royal Spa" title="Feel like a princess with Royal Spa"/></a></li>
             <li><a href="${ctx}/"><img src="${ctx}/static/images/products/JubileeRoyalPartyAcai.jpg" alt="Stay energised with Isotonix for the Queen's Jubilee" title="Stay energised with Isotonix for the Queen's Jubilee"/></a></li>
             <li><a href="${ctx}/"><img src="${ctx}/static/images/products/WorldStores.gif" alt="WorldStores - Top Brands Delivered Next Day" title="WorldStores - Top Brands Delivered Next Day"/></a></li>
+            --%>
         </ul>
         <ul class="ui-banner-slogans">
+            <c:forEach items="${homes}" var="home">
+                <li>
+                    <c:choose>
+                        <c:when test="${fn:length(home.brief) > 40}">
+                            <c:out value="${fn:substring(home.brief, 0, 40)}" />
+                        </c:when>
+                        <c:otherwise>
+                            <c:out value="${home.brief}" />
+                        </c:otherwise>
+                    </c:choose>
+                </li>
+            </c:forEach>
+            <%--
             <li>NEW! Get Heart Smart With Essential Omega III</li>
             <li>NEW! Support Your Skin on a Cellular Level</li>
             <li>NEW! Indulge in Luxury With Royal Spa</li>
@@ -39,6 +57,7 @@
             <li>Feel like a princess with Royal Spa</li>
             <li>Stay energised with Isotonix for the Queen's Jubilee</li>
             <li>WorldStores - Top Brands Delivered Next Day</li>
+            --%>
         </ul>
     </div>
 </div>

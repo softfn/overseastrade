@@ -35,6 +35,9 @@ public class MenuController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private HomeService homeService;
+
     @ModelAttribute
     public void findTopNews(Model model) {
         List<News> topNews = newsService.findTopNews();
@@ -50,7 +53,9 @@ public class MenuController {
     @RequestMapping(value = {"/home", "/"})
     public String home(Model model) {
         List<Product> hotProducts = productService.findHotProducts();
+        Iterable<Home> homes = homeService.findAll();
         model.addAttribute("hotProducts", hotProducts);
+        model.addAttribute("homes", homes);
         return "index";
     }
 

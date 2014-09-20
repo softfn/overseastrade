@@ -43,13 +43,8 @@ public class BackendController {
     @RequestMapping(value = "home/save", method = RequestMethod.POST)
     public String home(Homes homes, Model model) {
         for (Home home : homes.getHomes()) {
-            if (home.getId().equals("") || home.getBrief().equals("") || home.getPath().equals("") || home.getReferId().equals("")) {
-
-            } else {
-                home.setTime(new Date());
-                homeService.save(home);
-            }
-
+            home.setTime(new Date());
+            homeService.save(home);
         }
         model.addAttribute("activeId", "home");
         model.addAttribute("homes", homeService.findAll());
