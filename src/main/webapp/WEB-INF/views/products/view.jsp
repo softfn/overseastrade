@@ -75,8 +75,8 @@
     </c:forEach>
 </div>
 <div style="float: right; height: 30px; padding-right: 14px; clear: both">
-    <a href="#" onclick="cl()">Close</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="javascript:history.go(-1);">Back</a>
+    <a href="#" onclick="cl()" style="color: #000000; text-decoration: underline;">Close</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="javascript:history.go(-1);" style="color: #000000; text-decoration: underline;">Back</a>
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
