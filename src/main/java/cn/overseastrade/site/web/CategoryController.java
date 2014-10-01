@@ -8,6 +8,7 @@ import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,6 @@ import org.springside.modules.web.Servlets;
 
 import javax.servlet.ServletRequest;
 import javax.validation.Valid;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +27,7 @@ import java.util.Map;
 @Controller
 public class CategoryController {
     private static Map<String, String> sortTypes = Maps.newLinkedHashMap();
+
     static {
         sortTypes.put("auto", "seq");
         sortTypes.put("id", "id");
@@ -58,30 +59,8 @@ public class CategoryController {
     }
 
     @RequestMapping(value = "/admin/category/save", method = RequestMethod.POST)
+    @Transactional
     public String save(@Valid Category category) {
-        if (category.getCategory().getId() == null) {
-            category.setCategory(null);
-        }
-        if (category.getId() == null) {
-            Long parentId = null;
-            if (category.getCategory() != null) {
-                parentId = category.getCategory().getId();
-            }
-            List<Category> categories = categoryService.findByParentId(parentId);
-            if (categories != null && categories.size() > 0) {
-                String code = categories.get(0).getCode();
-                int codeNum = Integer.parseInt(code) + 1;
-                category.setCode(String.format("%0" + code.length() + "d", codeNum));
-            } else {
-                if (parentId != null) {
-                    Category category1 = categoryService.getCategory(parentId);
-                    category.setCode(category1.getCode() + "001");
-                } else {
-                    category.setCode("001");
-                }
-            }
-        }
-        category.setTime(new Date());
         categoryService.save(category);
         return "redirect:/admin/category";
     }

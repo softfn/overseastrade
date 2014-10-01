@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springside.modules.persistence.DynamicSpecifications;
 import org.springside.modules.persistence.SearchFilter;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +26,44 @@ public class CategoryService {
     private CategoryDao categoryDao;
 
     public void save(Category category) {
+        if (category.getCategory().getId() == null) {
+            category.setCategory(null);
+        }
+        Long parentId = null;
+        if (category.getCategory() != null) {
+            parentId = category.getCategory().getId();
+        }
+        List<Category> categories = findByParentId(parentId);
+        if (categories != null && categories.size() > 0) {
+            String code = categories.get(0).getCode();
+            int codeNum = Integer.parseInt(code) + 1;
+            category.setCode(String.format("%0" + code.length() + "d", codeNum));
+        } else {
+            if (parentId != null) {
+                Category category1 = getCategory(parentId);
+                category.setCode(category1.getCode() + "001");
+            } else {
+                category.setCode("001");
+            }
+        }
+        Long id = category.getId();
+        if (id != null) {
+            Category category1 = getCategory(id);
+            if (!category1.getCode().equals(category.getCode())) {
+                Map<String, Object> searchParams = new HashMap<String, Object>();
+                searchParams.put("RK_code", category1.getCode());
+                Page<Category> page = getCategory(searchParams, 1, 10000, "code");
+                for (Category ctg : page.getContent()) {
+                    if (ctg.getId().equals(id)) {
+                        continue;
+                    }
+                    ctg.setCode(category.getCode() + ctg.getCode().substring(category1.getCode().length()));
+                    categoryDao.save(ctg);
+                }
+            }
+        } else {
+            category.setTime(new Date());
+        }
         categoryDao.save(category);
     }
 
