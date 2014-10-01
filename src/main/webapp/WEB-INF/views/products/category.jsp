@@ -90,7 +90,7 @@
 <c:if test="${toggle == 2}">
 <div id="productContainer">
     <c:forEach items="${productPage.content}" var="pp">
-        <div class="porductGrid" productId="${pp.id}">
+        <div class="porductGrid" productId="${pp.id}" title="${pp.name}">
             <div class="imgholder">
                 <img src="${ctx}${pp.pictures[0].path}" />
             </div>
