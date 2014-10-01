@@ -35,11 +35,11 @@
                                         <c:choose>
                                             <c:when test="${fc.isNew && fn:length(fc.name) > 24}">
                                                 <c:out value="${fn:substring(fc.name, 0, 24)}…" />
-                                                <img src="${ctx}/static/images/new.gif">
+                                                &nbsp;<img src="${ctx}/static/images/new.gif">
                                             </c:when>
                                             <c:when test="${fc.isNew && fn:length(fc.name) <= 24}">
                                                 <c:out value="${fc.name}" />
-                                                <img src="${ctx}/static/images/new.gif">
+                                                &nbsp;<img src="${ctx}/static/images/new.gif">
                                             </c:when>
                                             <c:when test="${!fc.isNew && fn:length(fc.name) > 28}">
                                                 <c:out value="${fn:substring(fc.name, 0, 28)}…" />
