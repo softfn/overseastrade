@@ -8,7 +8,6 @@
     <title>${product.name} - Product View</title>
     <meta name="description" content="${product.brief}"/>
     <meta name="keywords" content="${product.keywords}"/>
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5419d03b6dfc1612"></script>
     <style>
         .section { height: 25px; line-height: 25px; font-weight: bold; font-size: 13px; border-bottom: 1px solid #CCC; clear: both; margin: 8px }

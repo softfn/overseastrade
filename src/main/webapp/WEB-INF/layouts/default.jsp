@@ -12,7 +12,7 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <meta name="description" content="Shenzhen Overseas Trade Limited Company is a professional supplier of high quality home used healthcare products in Shenzhen city which is famous for its quality manufacturing industry city of China. "/>
-<meta name="keywords" content="Thermometer, Oximeter, overseas, trade, Xin Qi, Electronics, Fashion"/>
+<meta name="keywords" content="Thermometer,Oximeter,Electronics,Fashion,Overseas trade,XinQi"/>
 
 <link type="image/x-icon" href="${ctx}/static/images/favicon.ico" rel="shortcut icon">
 <link href="${ctx}/static/styles/default.css" type="text/css" rel="stylesheet" />
