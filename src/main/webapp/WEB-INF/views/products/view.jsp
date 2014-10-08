@@ -84,6 +84,7 @@
             $(".pic img").attr("src", imgUrl);
         });
     });
+
     function cl() {
         window.opener=null;
         window.open('', '_self', '');
